@@ -76,17 +76,113 @@
 		400F8CE42C16289D000515B3 /* FootBall */ = {
 			isa = PBXGroup;
 			children = (
+				4046D73F2C163FB600A01192 /* Utils */,
+				4046D73E2C163FA200A01192 /* Services */,
+				4046D73D2C163F9600A01192 /* Modules */,
+				4046D73C2C163F8B00A01192 /* View */,
+				4046D73B2C163F8000A01192 /* Model */,
 				400F8CE52C16289D000515B3 /* AppDelegate.swift */,
 				400F8CE72C16289D000515B3 /* SceneDelegate.swift */,
-				400F8CE92C16289D000515B3 /* AllCompetitionsViewController.swift */,
-				400F8CEB2C16289D000515B3 /* Main.storyboard */,
 				400F8CEE2C16289F000515B3 /* Assets.xcassets */,
-				400F8CF02C16289F000515B3 /* LaunchScreen.storyboard */,
 				400F8CF32C16289F000515B3 /* Info.plist */,
-				4046D7372C162FE200A01192 /* CompetitionViewCell.swift */,
-				4046D7382C162FE200A01192 /* CompetitionViewCell.xib */,
 			);
 			path = FootBall;
+			sourceTree = "<group>";
+		};
+		4046D73B2C163F8000A01192 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4046D73C2C163F8B00A01192 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4046D7402C163FCF00A01192 /* InterfaceBuilder */,
+				4046D7412C163FDE00A01192 /* Classes */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4046D73D2C163F9600A01192 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				4046D7422C16405B00A01192 /* Competitions */,
+				4046D7432C16406A00A01192 /* CompetitionsInfo */,
+				4046D7442C16407C00A01192 /* TeamInfo */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		4046D73E2C163FA200A01192 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		4046D73F2C163FB600A01192 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		4046D7402C163FCF00A01192 /* InterfaceBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				400F8CEB2C16289D000515B3 /* Main.storyboard */,
+				400F8CF02C16289F000515B3 /* LaunchScreen.storyboard */,
+				4046D7382C162FE200A01192 /* CompetitionViewCell.xib */,
+			);
+			path = InterfaceBuilder;
+			sourceTree = "<group>";
+		};
+		4046D7412C163FDE00A01192 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4046D7372C162FE200A01192 /* CompetitionViewCell.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4046D7422C16405B00A01192 /* Competitions */ = {
+			isa = PBXGroup;
+			children = (
+				4046D7462C1640A700A01192 /* view */,
+				4046D7452C16409B00A01192 /* viewModel */,
+			);
+			path = Competitions;
+			sourceTree = "<group>";
+		};
+		4046D7432C16406A00A01192 /* CompetitionsInfo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CompetitionsInfo;
+			sourceTree = "<group>";
+		};
+		4046D7442C16407C00A01192 /* TeamInfo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TeamInfo;
+			sourceTree = "<group>";
+		};
+		4046D7452C16409B00A01192 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
+		4046D7462C1640A700A01192 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				400F8CE92C16289D000515B3 /* AllCompetitionsViewController.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		AC9DDDF161FAD5270DB27C1C /* Frameworks */ = {
