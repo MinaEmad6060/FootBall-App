@@ -13,6 +13,8 @@
 		400F8CED2C16289D000515B3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 400F8CEC2C16289D000515B3 /* Base */; };
 		400F8CEF2C16289F000515B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 400F8CEE2C16289F000515B3 /* Assets.xcassets */; };
 		400F8CF22C16289F000515B3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 400F8CF12C16289F000515B3 /* Base */; };
+		4046D7392C162FE200A01192 /* CompetitionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4046D7382C162FE200A01192 /* CompetitionViewCell.xib */; };
+		4046D73A2C162FE200A01192 /* CompetitionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046D7372C162FE200A01192 /* CompetitionViewCell.swift */; };
 		C95986C09B983AA133A77FE5 /* Pods_FootBall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0348856709CB99BD8DE76BC2 /* Pods_FootBall.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		400F8CEE2C16289F000515B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		400F8CF12C16289F000515B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		400F8CF32C16289F000515B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4046D7372C162FE200A01192 /* CompetitionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionViewCell.swift; sourceTree = "<group>"; };
+		4046D7382C162FE200A01192 /* CompetitionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionViewCell.xib; sourceTree = "<group>"; };
 		85B2E1CB0827854B7443D2FA /* Pods-FootBall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FootBall.release.xcconfig"; path = "Target Support Files/Pods-FootBall/Pods-FootBall.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +83,8 @@
 				400F8CEE2C16289F000515B3 /* Assets.xcassets */,
 				400F8CF02C16289F000515B3 /* LaunchScreen.storyboard */,
 				400F8CF32C16289F000515B3 /* Info.plist */,
+				4046D7372C162FE200A01192 /* CompetitionViewCell.swift */,
+				4046D7382C162FE200A01192 /* CompetitionViewCell.xib */,
 			);
 			path = FootBall;
 			sourceTree = "<group>";
@@ -153,6 +159,7 @@
 			files = (
 				400F8CEF2C16289F000515B3 /* Assets.xcassets in Resources */,
 				400F8CF22C16289F000515B3 /* Base in Resources */,
+				4046D7392C162FE200A01192 /* CompetitionViewCell.xib in Resources */,
 				400F8CED2C16289D000515B3 /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,6 +215,7 @@
 			files = (
 				400F8CEA2C16289D000515B3 /* AllCompetitionsViewController.swift in Sources */,
 				400F8CE62C16289D000515B3 /* AppDelegate.swift in Sources */,
+				4046D73A2C162FE200A01192 /* CompetitionViewCell.swift in Sources */,
 				400F8CE82C16289D000515B3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
