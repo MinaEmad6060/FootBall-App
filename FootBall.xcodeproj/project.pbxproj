@@ -16,6 +16,7 @@
 		4046D7392C162FE200A01192 /* CompetitionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4046D7382C162FE200A01192 /* CompetitionViewCell.xib */; };
 		4046D73A2C162FE200A01192 /* CompetitionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046D7372C162FE200A01192 /* CompetitionViewCell.swift */; };
 		4046D74B2C1642E200A01192 /* CompetitionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046D74A2C1642E200A01192 /* CompetitionDetailsViewController.swift */; };
+		4046D7512C1651A600A01192 /* TeamDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046D7502C1651A600A01192 /* TeamDetailsViewController.swift */; };
 		C95986C09B983AA133A77FE5 /* Pods_FootBall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0348856709CB99BD8DE76BC2 /* Pods_FootBall.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		4046D7372C162FE200A01192 /* CompetitionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionViewCell.swift; sourceTree = "<group>"; };
 		4046D7382C162FE200A01192 /* CompetitionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionViewCell.xib; sourceTree = "<group>"; };
 		4046D74A2C1642E200A01192 /* CompetitionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionDetailsViewController.swift; sourceTree = "<group>"; };
+		4046D7502C1651A600A01192 /* TeamDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewController.swift; sourceTree = "<group>"; };
 		85B2E1CB0827854B7443D2FA /* Pods-FootBall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FootBall.release.xcconfig"; path = "Target Support Files/Pods-FootBall/Pods-FootBall.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +172,8 @@
 		4046D7442C16407C00A01192 /* TeamInfo */ = {
 			isa = PBXGroup;
 			children = (
+				4046D74F2C16518A00A01192 /* view */,
+				4046D74E2C16518200A01192 /* viewModel */,
 			);
 			path = TeamInfo;
 			sourceTree = "<group>";
@@ -200,6 +204,21 @@
 			isa = PBXGroup;
 			children = (
 				4046D74A2C1642E200A01192 /* CompetitionDetailsViewController.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4046D74E2C16518200A01192 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
+		4046D74F2C16518A00A01192 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4046D7502C1651A600A01192 /* TeamDetailsViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -332,6 +351,7 @@
 				400F8CEA2C16289D000515B3 /* AllCompetitionsViewController.swift in Sources */,
 				400F8CE62C16289D000515B3 /* AppDelegate.swift in Sources */,
 				4046D73A2C162FE200A01192 /* CompetitionViewCell.swift in Sources */,
+				4046D7512C1651A600A01192 /* TeamDetailsViewController.swift in Sources */,
 				400F8CE82C16289D000515B3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

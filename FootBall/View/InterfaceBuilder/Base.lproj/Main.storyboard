@@ -59,9 +59,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cIP-Ku-ySb">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cIP-Ku-ySb">
                                 <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <navigationItem title="Competition Details" id="bHD-L3-OTO">
@@ -73,14 +72,92 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fcd-zd-z6a">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8I-3K-rTY">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="715"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="W8I-3K-rTY" secondAttribute="bottom" id="0DV-KL-klK"/>
+                                    <constraint firstItem="W8I-3K-rTY" firstAttribute="top" secondItem="Fcd-zd-z6a" secondAttribute="top" id="2Di-kv-kU5"/>
+                                    <constraint firstAttribute="trailing" secondItem="W8I-3K-rTY" secondAttribute="trailing" id="2tL-cw-Ng0"/>
+                                    <constraint firstItem="W8I-3K-rTY" firstAttribute="leading" secondItem="Fcd-zd-z6a" secondAttribute="leading" id="8Pj-BR-gJ6"/>
+                                    <constraint firstItem="W8I-3K-rTY" firstAttribute="width" secondItem="Fcd-zd-z6a" secondAttribute="width" id="KSc-ZV-Io6"/>
+                                    <constraint firstItem="W8I-3K-rTY" firstAttribute="height" secondItem="Fcd-zd-z6a" secondAttribute="height" priority="250" id="l6v-HV-tzP"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1gl-L4-zjW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Fcd-zd-z6a" firstAttribute="trailing" secondItem="1gl-L4-zjW" secondAttribute="trailing" id="10k-Sf-kJh"/>
+                            <constraint firstItem="Fcd-zd-z6a" firstAttribute="leading" secondItem="1gl-L4-zjW" secondAttribute="leading" id="FmF-9S-4wq"/>
+                            <constraint firstItem="cIP-Ku-ySb" firstAttribute="leading" secondItem="Fcd-zd-z6a" secondAttribute="leading" id="Fmo-oE-2Qw"/>
+                            <constraint firstItem="cIP-Ku-ySb" firstAttribute="top" secondItem="1gl-L4-zjW" secondAttribute="top" id="XHn-Aa-dOL"/>
+                            <constraint firstItem="Fcd-zd-z6a" firstAttribute="top" secondItem="cIP-Ku-ySb" secondAttribute="bottom" id="fwV-CZ-FFW"/>
+                            <constraint firstItem="1gl-L4-zjW" firstAttribute="bottom" secondItem="Fcd-zd-z6a" secondAttribute="bottom" id="nwF-Co-L17"/>
+                            <constraint firstItem="cIP-Ku-ySb" firstAttribute="trailing" secondItem="Fcd-zd-z6a" secondAttribute="trailing" id="uij-eR-tY0"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zoe-Cc-M5V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1136.6412213740457" y="-27.464788732394368"/>
+        </scene>
+        <!--Team Details View Controller-->
+        <scene sceneID="qJl-Q3-obq">
+            <objects>
+                <viewController storyboardIdentifier="teamDetails" modalPresentationStyle="fullScreen" id="tje-JB-PFt" customClass="TeamDetailsViewController" customModule="FootBall" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Kx-Vy-m3A">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2xB-Tw-2Ko">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Competition Details" id="wN4-ki-aCw">
+                                        <barButtonItem key="leftBarButtonItem" image="arrowshape.turn.up.backward.fill" catalog="system" id="9uc-FL-ZFD"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="USb-po-40s">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0V0-LM-wX2">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="715"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="0V0-LM-wX2" secondAttribute="bottom" id="E5W-z0-gL2"/>
+                                    <constraint firstItem="0V0-LM-wX2" firstAttribute="leading" secondItem="USb-po-40s" secondAttribute="leading" id="N2r-4W-h91"/>
+                                    <constraint firstItem="0V0-LM-wX2" firstAttribute="height" secondItem="USb-po-40s" secondAttribute="height" priority="250" id="e9h-XS-G7w"/>
+                                    <constraint firstItem="0V0-LM-wX2" firstAttribute="top" secondItem="USb-po-40s" secondAttribute="top" id="ew3-6o-Cys"/>
+                                    <constraint firstItem="0V0-LM-wX2" firstAttribute="width" secondItem="USb-po-40s" secondAttribute="width" id="lKS-hT-SYW"/>
+                                    <constraint firstAttribute="trailing" secondItem="0V0-LM-wX2" secondAttribute="trailing" id="r8F-YG-qYh"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Eck-4m-Qdf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="USb-po-40s" firstAttribute="leading" secondItem="Eck-4m-Qdf" secondAttribute="leading" id="0Ne-hA-FXf"/>
+                            <constraint firstItem="2xB-Tw-2Ko" firstAttribute="leading" secondItem="USb-po-40s" secondAttribute="leading" id="8LH-kl-jrf"/>
+                            <constraint firstItem="USb-po-40s" firstAttribute="top" secondItem="2xB-Tw-2Ko" secondAttribute="bottom" id="KJV-ZO-JJT"/>
+                            <constraint firstItem="2xB-Tw-2Ko" firstAttribute="top" secondItem="Eck-4m-Qdf" secondAttribute="top" id="MG3-Ka-dxP"/>
+                            <constraint firstItem="Eck-4m-Qdf" firstAttribute="bottom" secondItem="USb-po-40s" secondAttribute="bottom" id="cKz-s9-Biv"/>
+                            <constraint firstItem="2xB-Tw-2Ko" firstAttribute="trailing" secondItem="USb-po-40s" secondAttribute="trailing" id="cXY-Aa-nW9"/>
+                            <constraint firstItem="USb-po-40s" firstAttribute="trailing" secondItem="Eck-4m-Qdf" secondAttribute="trailing" id="pxA-UW-iDh"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yu9-29-ggB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2030" y="-27"/>
         </scene>
     </scenes>
     <resources>
