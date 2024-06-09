@@ -12,7 +12,7 @@ struct FootballCompetitions: Decodable{
 }
 
 struct Competition: Decodable{
-    var id: Int?
+    var id: Int8?
     var area: Area?
     //longName
     var name: String?
@@ -28,7 +28,7 @@ struct Area: Decodable{
 
 struct Season: Decodable{
     //games
-    var currentMatchday: Int?
+    var currentMatchday: Int8?
     var startDate: String?
     var endDate: String?
     var winner: Winner?
