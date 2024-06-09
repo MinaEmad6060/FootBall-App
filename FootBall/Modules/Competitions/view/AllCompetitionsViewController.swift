@@ -17,11 +17,18 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         competitionsTable.delegate = self
         competitionsTable.dataSource = self
         let nibCustomCell = UINib(nibName: "CompetitionViewCell", bundle: nil)
         competitionsTable.register(nibCustomCell, forCellReuseIdentifier: "competitionCell")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let indexPath = competitionsTable.indexPathForSelectedRow {
+            competitionsTable.deselectRow(at: indexPath, animated: false)
+        }
     }
 
 
@@ -34,6 +41,13 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
 
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let detailViewController = storyboard.instantiateViewController(withIdentifier: "competitionDetails") as! CompetitionDetailsViewController
+            
+            present(detailViewController, animated: true, completion: nil)
+        }
     
     
 }

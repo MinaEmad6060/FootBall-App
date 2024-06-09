@@ -15,6 +15,7 @@
 		400F8CF22C16289F000515B3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 400F8CF12C16289F000515B3 /* Base */; };
 		4046D7392C162FE200A01192 /* CompetitionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4046D7382C162FE200A01192 /* CompetitionViewCell.xib */; };
 		4046D73A2C162FE200A01192 /* CompetitionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046D7372C162FE200A01192 /* CompetitionViewCell.swift */; };
+		4046D74B2C1642E200A01192 /* CompetitionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046D74A2C1642E200A01192 /* CompetitionDetailsViewController.swift */; };
 		C95986C09B983AA133A77FE5 /* Pods_FootBall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0348856709CB99BD8DE76BC2 /* Pods_FootBall.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		400F8CF32C16289F000515B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4046D7372C162FE200A01192 /* CompetitionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionViewCell.swift; sourceTree = "<group>"; };
 		4046D7382C162FE200A01192 /* CompetitionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompetitionViewCell.xib; sourceTree = "<group>"; };
+		4046D74A2C1642E200A01192 /* CompetitionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionDetailsViewController.swift; sourceTree = "<group>"; };
 		85B2E1CB0827854B7443D2FA /* Pods-FootBall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FootBall.release.xcconfig"; path = "Target Support Files/Pods-FootBall/Pods-FootBall.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,6 +161,8 @@
 		4046D7432C16406A00A01192 /* CompetitionsInfo */ = {
 			isa = PBXGroup;
 			children = (
+				4046D7482C16429C00A01192 /* view */,
+				4046D7472C16429100A01192 /* viewModel */,
 			);
 			path = CompetitionsInfo;
 			sourceTree = "<group>";
@@ -181,6 +185,21 @@
 			isa = PBXGroup;
 			children = (
 				400F8CE92C16289D000515B3 /* AllCompetitionsViewController.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4046D7472C16429100A01192 /* viewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = viewModel;
+			sourceTree = "<group>";
+		};
+		4046D7482C16429C00A01192 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4046D74A2C1642E200A01192 /* CompetitionDetailsViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -309,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4046D74B2C1642E200A01192 /* CompetitionDetailsViewController.swift in Sources */,
 				400F8CEA2C16289D000515B3 /* AllCompetitionsViewController.swift in Sources */,
 				400F8CE62C16289D000515B3 /* AppDelegate.swift in Sources */,
 				4046D73A2C162FE200A01192 /* CompetitionViewCell.swift in Sources */,
