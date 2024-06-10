@@ -9,6 +9,26 @@ import UIKit
 
 class CompetitionViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var competitionImage: UIImageView!
+    
+    @IBOutlet weak var competitionLongName: UILabel!
+    
+    @IBOutlet weak var competitionShortName: UILabel!
+    
+    @IBOutlet weak var competitionNumberOfTeams: UILabel!
+    
+    @IBOutlet weak var competitionNumberOfGames: UILabel!
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

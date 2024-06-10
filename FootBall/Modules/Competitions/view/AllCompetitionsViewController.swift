@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import Kingfisher
 
 struct CompetitionsViewData{
     var image: String?
     var longName: String?
     var shortName: String?
-    var numberOfTeams: String?
-    var numberOfGames: String?
+//    var numberOfTeams: Int16?
+    var numberOfGames: Int16?
 }
 
 class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
@@ -20,8 +21,12 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
     
     @IBOutlet weak var competitionsTable: UITableView!
     
-    
     var allCompetitionsViewModel: AllCompetitionsViewModelProtocol!
+    
+    var numberOfTeamsForCompetition: [String]?
+    
+    //just for view data (not a model)
+    var competitionsViewData: [CompetitionsViewData]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +35,7 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
         competitionsTable.dataSource = self
         
         allCompetitionsViewModel = AllCompetitionsViewModel()
+        competitionsViewData = [CompetitionsViewData]()
         
         let nibCustomCell = UINib(nibName: "CompetitionViewCell", bundle: nil)
         competitionsTable.register(nibCustomCell, forCellReuseIdentifier: "competitionCell")
@@ -43,13 +49,15 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
         }
         
         allCompetitionsViewModel.getCompetitionsFromNetworkService()
-//        allCompetitionsViewModel
+        allCompetitionsViewModel.bindCompetitionsToViewController = {
+            
+            self.competitionsViewData = self.allCompetitionsViewModel.competitionsViewData
+            print("View : \(self.competitionsViewData[0].longName ?? "none")")
+            DispatchQueue.main.async {
+                self.competitionsTable.reloadData()
+            }
+        }
         
-//        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl)
-//        
-//        networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballCompetitions: FootballCompetitions) in
-//            print("reslt : \(footballCompetitions.competitions?.count ?? 0)")
-//        }
     }
 
 
@@ -60,6 +68,18 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "competitionCell", for: indexPath) as! CompetitionViewCell
 
+        if competitionsViewData.count > indexPath.row{
+            print("if count")
+            cell.competitionLongName.text = competitionsViewData?[indexPath.row].longName
+            cell.competitionShortName.text = competitionsViewData?[indexPath.row].shortName
+            cell.competitionNumberOfGames.text = "\(competitionsViewData?[indexPath.row].numberOfGames ?? 0)"
+            if let imageURLString = competitionsViewData?[indexPath.row].image, let imageURL = URL(string: imageURLString) {
+                cell.competitionImage.kf.setImage(with: imageURL, placeholder: UIImage(named: "world"))
+            } else {
+                cell.competitionImage.image = UIImage(named: "Arg")
+            }
+        }
+        
         return cell
     }
     

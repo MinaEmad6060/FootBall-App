@@ -24,6 +24,7 @@ struct Competition: Decodable{
 struct Area: Decodable{
     //shortName
     var name: String?
+    var ensignUrl: String?
 }
 
 struct Season: Decodable{

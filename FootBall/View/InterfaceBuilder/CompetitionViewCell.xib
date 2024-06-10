@@ -118,6 +118,13 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="competitionImage" destination="nnu-8o-YWI" id="2KG-kf-nLs"/>
+                <outlet property="competitionLongName" destination="K0P-bl-rO8" id="r1h-fa-QGm"/>
+                <outlet property="competitionNumberOfGames" destination="fxU-pC-fgG" id="KXV-3m-yWA"/>
+                <outlet property="competitionNumberOfTeams" destination="hGf-gD-37Y" id="Ntd-H2-NIQ"/>
+                <outlet property="competitionShortName" destination="fNO-ub-ckh" id="eZW-Ot-ngf"/>
+            </connections>
             <point key="canvasLocation" x="11.450381679389313" y="38.380281690140848"/>
         </tableViewCell>
     </objects>
