@@ -7,6 +7,14 @@
 
 import UIKit
 
+struct CompetitionsViewData{
+    var image: String?
+    var longName: String?
+    var shortName: String?
+    var numberOfTeams: String?
+    var numberOfGames: String?
+}
+
 class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
     
