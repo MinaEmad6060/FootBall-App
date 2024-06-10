@@ -52,7 +52,6 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
         allCompetitionsViewModel.bindCompetitionsToViewController = {
             
             self.competitionsViewData = self.allCompetitionsViewModel.competitionsViewData
-            print("View : \(self.competitionsViewData[0].longName ?? "none")")
             DispatchQueue.main.async {
                 self.competitionsTable.reloadData()
             }
@@ -62,6 +61,9 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if competitionsViewData.count > 0{
+            return competitionsViewData.count
+        }
         return 10
     }
     
@@ -73,10 +75,11 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
             cell.competitionLongName.text = competitionsViewData?[indexPath.row].longName
             cell.competitionShortName.text = competitionsViewData?[indexPath.row].shortName
             cell.competitionNumberOfGames.text = "\(competitionsViewData?[indexPath.row].numberOfGames ?? 0)"
+            let placeholderImage = UIImage(systemName: "trophy.fill")
             if let imageURLString = competitionsViewData?[indexPath.row].image, let imageURL = URL(string: imageURLString) {
-                cell.competitionImage.kf.setImage(with: imageURL, placeholder: UIImage(named: "world"))
+                cell.competitionImage.kf.setImage(with: imageURL, placeholder: placeholderImage)
             } else {
-                cell.competitionImage.image = UIImage(named: "Arg")
+                cell.competitionImage.image = placeholderImage
             }
         }
         
