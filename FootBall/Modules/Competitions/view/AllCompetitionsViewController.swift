@@ -13,14 +13,15 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
     @IBOutlet weak var competitionsTable: UITableView!
     
     
-    var networkManager: NetworkManager!
+    var allCompetitionsViewModel: AllCompetitionsViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         competitionsTable.delegate = self
         competitionsTable.dataSource = self
         
-        networkManager = NetworkManager()
+        allCompetitionsViewModel = AllCompetitionsViewModel()
         
         let nibCustomCell = UINib(nibName: "CompetitionViewCell", bundle: nil)
         competitionsTable.register(nibCustomCell, forCellReuseIdentifier: "competitionCell")
@@ -33,10 +34,14 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
             competitionsTable.deselectRow(at: indexPath, animated: false)
         }
         
-        networkManager.getFootballDetailsFromApi(url: networkManager.url) {[weak self]  (footballCompetitions: FootballCompetitions) in
-            print("reslt : \(footballCompetitions.competitions?[0].name ?? "none")")
-        }
-//        networkManager.getFootballDetailsFromApi()
+        allCompetitionsViewModel.getCompetitionsFromNetworkService()
+//        allCompetitionsViewModel
+        
+//        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl)
+//        
+//        networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballCompetitions: FootballCompetitions) in
+//            print("reslt : \(footballCompetitions.competitions?.count ?? 0)")
+//        }
     }
 
 
