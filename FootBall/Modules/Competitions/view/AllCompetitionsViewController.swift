@@ -13,12 +13,15 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
     @IBOutlet weak var competitionsTable: UITableView!
     
     
-    
+    var networkManager: NetworkManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         competitionsTable.delegate = self
         competitionsTable.dataSource = self
+        
+        networkManager = NetworkManager()
+        
         let nibCustomCell = UINib(nibName: "CompetitionViewCell", bundle: nil)
         competitionsTable.register(nibCustomCell, forCellReuseIdentifier: "competitionCell")
     }
@@ -29,6 +32,11 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
         if let indexPath = competitionsTable.indexPathForSelectedRow {
             competitionsTable.deselectRow(at: indexPath, animated: false)
         }
+        
+        networkManager.getFootballDetailsFromApi(url: networkManager.url) {[weak self]  (footballCompetitions: FootballCompetitions) in
+            print("reslt : \(footballCompetitions.competitions?[0].name ?? "none")")
+        }
+//        networkManager.getFootballDetailsFromApi()
     }
 
 
