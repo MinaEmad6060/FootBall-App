@@ -25,6 +25,8 @@
 		40ACC5752C17062100A9A049 /* AllCompetitionsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ACC5742C17062100A9A049 /* AllCompetitionsViewModelProtocol.swift */; };
 		40B943D62C17341000AE07F7 /* TeamViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B943D42C17341000AE07F7 /* TeamViewCell.swift */; };
 		40B943D72C17341000AE07F7 /* TeamViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40B943D52C17341000AE07F7 /* TeamViewCell.xib */; };
+		40B943DA2C1735FB00AE07F7 /* PlayerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B943D82C1735FB00AE07F7 /* PlayerViewCell.swift */; };
+		40B943DB2C1735FB00AE07F7 /* PlayerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40B943D92C1735FB00AE07F7 /* PlayerViewCell.xib */; };
 		C95986C09B983AA133A77FE5 /* Pods_FootBall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0348856709CB99BD8DE76BC2 /* Pods_FootBall.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +53,8 @@
 		40ACC5742C17062100A9A049 /* AllCompetitionsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCompetitionsViewModelProtocol.swift; sourceTree = "<group>"; };
 		40B943D42C17341000AE07F7 /* TeamViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewCell.swift; sourceTree = "<group>"; };
 		40B943D52C17341000AE07F7 /* TeamViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamViewCell.xib; sourceTree = "<group>"; };
+		40B943D82C1735FB00AE07F7 /* PlayerViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewCell.swift; sourceTree = "<group>"; };
+		40B943D92C1735FB00AE07F7 /* PlayerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerViewCell.xib; sourceTree = "<group>"; };
 		85B2E1CB0827854B7443D2FA /* Pods-FootBall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FootBall.release.xcconfig"; path = "Target Support Files/Pods-FootBall/Pods-FootBall.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -160,6 +164,7 @@
 				400F8CF02C16289F000515B3 /* LaunchScreen.storyboard */,
 				4046D7382C162FE200A01192 /* CompetitionViewCell.xib */,
 				40B943D52C17341000AE07F7 /* TeamViewCell.xib */,
+				40B943D92C1735FB00AE07F7 /* PlayerViewCell.xib */,
 			);
 			path = InterfaceBuilder;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 			children = (
 				40B943D42C17341000AE07F7 /* TeamViewCell.swift */,
 				4046D7372C162FE200A01192 /* CompetitionViewCell.swift */,
+				40B943D82C1735FB00AE07F7 /* PlayerViewCell.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 				400F8CF22C16289F000515B3 /* Base in Resources */,
 				4046D7392C162FE200A01192 /* CompetitionViewCell.xib in Resources */,
 				400F8CED2C16289D000515B3 /* Base in Resources */,
+				40B943DB2C1735FB00AE07F7 /* PlayerViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +400,7 @@
 				4046D7512C1651A600A01192 /* TeamDetailsViewController.swift in Sources */,
 				40ACC5752C17062100A9A049 /* AllCompetitionsViewModelProtocol.swift in Sources */,
 				400F8CE82C16289D000515B3 /* SceneDelegate.swift in Sources */,
+				40B943DA2C1735FB00AE07F7 /* PlayerViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
