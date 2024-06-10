@@ -12,7 +12,7 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
     
     
     var bindCompetitionsDetailsToViewController: (() -> ())?
-    var bindTeamsToViewController: (() -> ())?
+    var bindGamesToViewController: (() -> ())?
     
     var networkManager = NetworkManager()
     
@@ -42,7 +42,7 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
     
     func getTeamsFromNetworkService() {
         let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "competitions", id: "2000", query: "teams")
-        print("url : \(url)")
+//        print("url : \(url)")
         competitionTeamViewData = [CompetitionTeamViewData]()
         networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballTeams: FootballTeams) in
           
@@ -54,19 +54,20 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
                     team.shortName = teams[i].shortName
                 }
                 self?.competitionTeamViewData?.append(team)
-                print("team : \(self?.competitionTeamViewData?[0].longName ?? "none")")
+//                print("team : \(self?.competitionTeamViewData?[0].longName ?? "none")")
             }
         }
     }
     
     func getGamesFromNetworkService() {
         let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "competitions", id: "2000", query: "matches")
-        print("url : \(url)")
+//        print("url : \(url)")
         networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballGames: FootballGames) in
             
             self?.numberOfGamesForCompetition = footballGames.count
-            
-            print("#Alll Games : \(self?.numberOfGamesForCompetition ?? -1)")
+            self?.bindGamesToViewController?()
+
+//            print("#Alll Games : \(self?.numberOfGamesForCompetition ?? -1)")
         }
     }
   

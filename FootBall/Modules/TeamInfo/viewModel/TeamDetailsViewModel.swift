@@ -9,34 +9,56 @@ import Foundation
 
 
 
-class TeamDetailsViewModel{
+class TeamDetailsViewModel : TeamDetailsViewModelProtocol{
+    
+    var teamPlayerViewData: [TeamPlayerViewData]?
+    
+    var teamInformation: TeamInformationViewData?
+       
     var bindTeamsToViewController: (() -> ())?
+    
+    var bindPlayersToViewController: (() -> ())?
     
     var networkManager = NetworkManager()
     
-    var competitionsDetailsViewData: CompetitionsDetailsViewData?
-    var competitionTeamViewData: [CompetitionTeamViewData]?
+   
     
-    var numberOfTeamsForCompetition: Int16?
-    
-//    func getTeamsFromNetworkService() {
-//        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, id: "2000", query: "teams")
+    func getTeamDetailsFromNetworkService() {
+//        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "teams", id: "2000")
 //        print("url : \(url)")
-//        competitionTeamViewData = [CompetitionTeamViewData]()
-//        networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballTeams: FootballTeams) in
+//        teamPlayerViewData = [TeamPlayerViewData]()
+//        networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballPlayers: FootBallPlayer) in
 //            
-//            self?.numberOfTeamsForCompetition = footballTeams.count
-//            print("#team : \(footballTeams.count ?? -1)")
-//            if let teams = footballTeams.teams{
-//                var team = CompetitionTeamViewData()
-//                for i in 0..<teams.count{
-//                    team.image = teams[i].crestUrl
-//                    team.longName = teams[i].name
-//                    team.shortName = teams[i].shortName
+//            if let players = footballPlayers.squad {
+//                var player = TeamPlayerViewData()
+//                for i in 0..<players.count{
+//                    player.name = players[i].name
+//                    player.position = players[i].position
+//                    player.nationality = players[i].nationality
 //                }
-//                self?.competitionTeamViewData?.append(team)
-//                print("team : \(self?.competitionTeamViewData?[0].longName ?? "none")")
+//                self?.teamPlayerViewData?.append(player)
+//                print("team : \(self?.teamPlayerViewData?[0].name ?? "none")")
 //            }
 //        }
-//    }
+    }
+    
+    
+    func getPlayersFromNetworkService() {
+        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "teams", id: "2000")
+        print("url : \(url)")
+        teamPlayerViewData = [TeamPlayerViewData]()
+        networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballPlayers: FootBallPlayer) in
+            
+            if let players = footballPlayers.squad {
+                var player = TeamPlayerViewData()
+                for i in 0..<players.count{
+                    player.name = players[i].name
+                    player.position = players[i].position
+                    player.nationality = players[i].nationality
+                }
+                self?.teamPlayerViewData?.append(player)
+                print("team : \(self?.teamPlayerViewData?[0].name ?? "none")")
+            }
+        }
+    }
 }

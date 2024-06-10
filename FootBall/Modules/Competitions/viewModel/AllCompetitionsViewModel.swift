@@ -45,12 +45,12 @@ class AllCompetitionsViewModel: AllCompetitionsViewModelProtocol{
     
     func getNumberOfTeamsFromNetworkService() {
         let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "competitions", id: "2000", query: "teams")
-        print("url : \(url)")
+//        print("url : \(url)")
         competitionTeamViewData = [CompetitionTeamViewData]()
         networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballTeams: FootballTeams) in
 
             self?.numberOfTeamsForCompetition = footballTeams.count
-            print("#Alll team : \(footballTeams.count ?? -1)")
+//            print("#Alll team : \(footballTeams.count ?? -1)")
         }
     }
 }

@@ -7,11 +7,22 @@
 
 import UIKit
 
-struct TeamPlayer{
+struct TeamPlayerViewData{
     var image: String?
     var name: String?
     var position: String?
     var nationality: String?
+}
+
+
+struct TeamInformationViewData{
+    var image: String?
+    var longName: String?
+    var shortName: String?
+    var founded: String?
+    var stadium: String?
+    var colors: String?
+    var website: String?
 }
 
 

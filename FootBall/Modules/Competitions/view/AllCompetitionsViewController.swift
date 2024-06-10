@@ -43,6 +43,7 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
         allCompetitionsViewModel.getNumberOfTeamsFromNetworkService()
         competitionDetailsViewModel.getGamesFromNetworkService()
         
+
         let nibCustomCell = UINib(nibName: "CompetitionViewCell", bundle: nil)
         competitionsTable.register(nibCustomCell, forCellReuseIdentifier: "competitionCell")
     }
@@ -58,9 +59,14 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
         allCompetitionsViewModel.bindCompetitionsToViewController = {
             
             self.competitionsViewData = self.allCompetitionsViewModel.competitionsViewData
+            print("#Alll team : \(self.allCompetitionsViewModel.numberOfTeamsForCompetition ?? -1)")
             DispatchQueue.main.async {
                 self.competitionsTable.reloadData()
             }
+        }
+        
+        competitionDetailsViewModel.bindGamesToViewController = {
+            print("#Alll Games : \(self.competitionDetailsViewModel.numberOfGamesForCompetition ?? -1)")
         }
         
     }

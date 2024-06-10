@@ -60,8 +60,7 @@ class CompetitionDetailsViewController: UIViewController,UITableViewDelegate, UI
         
         
         competitionDetailsViewModel.getCompetitionsDetailsFromNetworkService()
-        competitionDetailsViewModel.getTeamsFromNetworkService()
-//        competitionDetailsViewModel.getGamesFromNetworkService()
+       
         
         let nibCustomCell = UINib(nibName: "TeamViewCell", bundle: nil)
         teamsTable.register(nibCustomCell, forCellReuseIdentifier: "competitionTeamsCell")
