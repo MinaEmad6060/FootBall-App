@@ -11,5 +11,7 @@ import Foundation
 protocol AllCompetitionsViewModelProtocol{
     var competitionsViewData: [CompetitionsViewData]? { get set }
     var bindCompetitionsToViewController : (()->())? { get set }
+    var bindTeamsToViewController : (()->())? { get set }
     func getCompetitionsFromNetworkService()
+    func getNumberOfTeamsFromNetworkService()
 }

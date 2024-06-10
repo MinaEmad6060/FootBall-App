@@ -81,7 +81,7 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8I-3K-rTY">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="880"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1254"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trophy.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zbg-Zc-7pP">
                                                 <rect key="frame" x="108" y="71" width="177" height="150"/>
@@ -168,14 +168,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mUc-iw-LVF">
-                                                <rect key="frame" x="8" y="746" width="377" height="126"/>
+                                                <rect key="frame" x="8" y="746" width="377" height="500"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="377" id="YCS-xb-dKk"/>
-                                                    <constraint firstAttribute="height" constant="126" id="iZ5-bp-aE1"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="500" id="iZ5-bp-aE1"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="competitionDetailsCell" id="caA-ZZ-iGT">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="competitionTeamsCell" id="caA-ZZ-iGT">
                                                         <rect key="frame" x="0.0" y="50" width="377" height="47.666667938232422"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="caA-ZZ-iGT" id="kaM-J7-HST">
@@ -331,6 +331,9 @@
                             <constraint firstItem="cIP-Ku-ySb" firstAttribute="trailing" secondItem="Fcd-zd-z6a" secondAttribute="trailing" id="uij-eR-tY0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="teamsTable" destination="mUc-iw-LVF" id="DZC-dI-VdN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zoe-Cc-M5V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -361,7 +364,7 @@
                                 <rect key="frame" x="0.0" y="44" width="393" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Slg-xJ-Zsc">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="680"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1054"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flag.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uml-su-qkP">
                                                 <rect key="frame" x="108" y="72.333333333333314" width="177" height="148"/>
@@ -441,14 +444,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DD8-P9-N5a">
-                                                <rect key="frame" x="8" y="546" width="377" height="126"/>
+                                                <rect key="frame" x="8" y="546" width="377" height="500"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="126" id="B8U-hQ-exn"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="500" id="B8U-hQ-exn"/>
                                                     <constraint firstAttribute="width" constant="377" id="yjO-Qy-AAC"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="teamDetailsCell" id="jZ4-Cj-Gj7">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="teamPlayersCell" id="jZ4-Cj-Gj7">
                                                         <rect key="frame" x="0.0" y="50" width="377" height="47.666667938232422"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jZ4-Cj-Gj7" id="e3o-Db-i14">
@@ -564,6 +567,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hRN-bg-1sR"/>
+                    <connections>
+                        <outlet property="playersTable" destination="DD8-P9-N5a" id="Umk-HB-fx2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccr-gb-hAd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

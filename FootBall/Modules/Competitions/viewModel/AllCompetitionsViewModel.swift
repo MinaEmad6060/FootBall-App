@@ -16,7 +16,12 @@ class AllCompetitionsViewModel: AllCompetitionsViewModelProtocol{
 
     var bindCompetitionsToViewController : (()->())? = {}
 
+    var bindTeamsToViewController: (() -> ())?
+        
+    var competitionsDetailsViewData: CompetitionsDetailsViewData?
+    var competitionTeamViewData: [CompetitionTeamViewData]?
     
+    var numberOfTeamsForCompetition: Int16?
     
     
     func getCompetitionsFromNetworkService(){
@@ -37,4 +42,15 @@ class AllCompetitionsViewModel: AllCompetitionsViewModelProtocol{
         }
     }
     
+    
+    func getNumberOfTeamsFromNetworkService() {
+        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, id: "2000", query: "teams")
+        print("url : \(url)")
+        competitionTeamViewData = [CompetitionTeamViewData]()
+        networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballTeams: FootballTeams) in
+
+            self?.numberOfTeamsForCompetition = footballTeams.count
+            print("#Alll team : \(footballTeams.count ?? -1)")
+        }
+    }
 }

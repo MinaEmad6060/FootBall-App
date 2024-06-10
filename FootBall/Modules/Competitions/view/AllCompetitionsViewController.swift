@@ -21,6 +21,7 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
     @IBOutlet weak var competitionsTable: UITableView!
     
     var allCompetitionsViewModel: AllCompetitionsViewModelProtocol!
+    var competitionDetailsViewModel: CompetitionDetailsViewModelProtocol!
     
     var numberOfTeamsForCompetition: [String]?
     var numberOfGamesForCompetition: [String]?
@@ -35,9 +36,12 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
         competitionsTable.dataSource = self
         
         allCompetitionsViewModel = AllCompetitionsViewModel()
+        competitionDetailsViewModel = CompetitionDetailsViewModel()
         competitionsViewData = [CompetitionsViewData]()
         
         allCompetitionsViewModel.getCompetitionsFromNetworkService()
+        allCompetitionsViewModel.getNumberOfTeamsFromNetworkService()
+        competitionDetailsViewModel.getGamesFromNetworkService()
         
         let nibCustomCell = UINib(nibName: "CompetitionViewCell", bundle: nil)
         competitionsTable.register(nibCustomCell, forCellReuseIdentifier: "competitionCell")

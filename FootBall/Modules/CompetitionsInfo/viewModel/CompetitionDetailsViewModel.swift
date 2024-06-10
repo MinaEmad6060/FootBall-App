@@ -19,7 +19,6 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
     var competitionsDetailsViewData: CompetitionsDetailsViewData?
     var competitionTeamViewData: [CompetitionTeamViewData]?
     
-    var numberOfTeamsForCompetition: Int16?
     var numberOfGamesForCompetition: Int16?
     
     func getCompetitionsDetailsFromNetworkService() {
@@ -46,9 +45,7 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
         print("url : \(url)")
         competitionTeamViewData = [CompetitionTeamViewData]()
         networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballTeams: FootballTeams) in
-            
-            self?.numberOfTeamsForCompetition = footballTeams.count
-            
+          
             if let teams = footballTeams.teams{
                 var team = CompetitionTeamViewData()
                 for i in 0..<teams.count{
@@ -69,7 +66,7 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
             
             self?.numberOfGamesForCompetition = footballGames.count
             
-            print("Games : \(self?.numberOfGamesForCompetition ?? -1)")
+            print("#Alll Games : \(self?.numberOfGamesForCompetition ?? -1)")
         }
     }
   

@@ -25,11 +25,13 @@ struct CompetitionTeamViewData{
     var shortName: String?
 }
 
-class CompetitionDetailsViewController: UIViewController {
+class CompetitionDetailsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
     
+    @IBOutlet weak var teamsTable: UITableView!
     
     var competitionDetailsViewModel: CompetitionDetailsViewModelProtocol!
+    var teamDetailsViewModel: TeamDetailsViewModel!
     var competitionTeamViewData: [CompetitionTeamViewData]!
     
     var numberOfTeamsForCompetition: [String]?
@@ -45,7 +47,12 @@ class CompetitionDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        teamsTable.delegate = self
+        teamsTable.dataSource = self
+        
         competitionDetailsViewModel = CompetitionDetailsViewModel()
+        teamDetailsViewModel = TeamDetailsViewModel()
         
         //just for view data (not a model)
         detailsOfCompetitionViewData = CompetitionsDetailsViewData()
@@ -54,7 +61,10 @@ class CompetitionDetailsViewController: UIViewController {
         
         competitionDetailsViewModel.getCompetitionsDetailsFromNetworkService()
         competitionDetailsViewModel.getTeamsFromNetworkService()
-        competitionDetailsViewModel.getGamesFromNetworkService()
+//        competitionDetailsViewModel.getGamesFromNetworkService()
+        
+        let nibCustomCell = UINib(nibName: "TeamViewCell", bundle: nil)
+        teamsTable.register(nibCustomCell, forCellReuseIdentifier: "competitionTeamsCell")
         
         print("Comp Id : \(Constants.competitionId ?? 00)")
         // Do any additional setup after loading the view.
@@ -70,4 +80,17 @@ class CompetitionDetailsViewController: UIViewController {
         }
         
     }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "competitionTeamsCell", for: indexPath) as! TeamViewCell
+        
+        return cell
+    }
+    
+
 }
