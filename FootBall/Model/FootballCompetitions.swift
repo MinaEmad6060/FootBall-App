@@ -18,6 +18,7 @@ struct Competition: Decodable{
     var name: String?
     var emblemUrl: String?
     var currentSeason: Season?
+    var seasons: [Season]?
 }
 
 

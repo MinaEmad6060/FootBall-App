@@ -9,8 +9,8 @@ import Foundation
 
 
 struct FootballTeams: Decodable{
-    var count: Int8?
-    var competition: Competition?
+    var count: Int16?
+//    var competition: Competition?
     var teams: [Team]?
 }
 
@@ -23,6 +23,6 @@ struct Team: Decodable{
     //stadium
     var venue:String?
     var website:String?
-    var founded:Int8?
+    var founded:Int16?
 }
 

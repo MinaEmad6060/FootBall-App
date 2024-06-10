@@ -89,7 +89,9 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let detailViewController = storyboard.instantiateViewController(withIdentifier: "competitionDetails") as! CompetitionDetailsViewController
-            Constants.competitionId = competitionsViewData[indexPath.row].id
+            if competitionsViewData.count > indexPath.row{
+                Constants.competitionId = competitionsViewData[indexPath.row].id
+            }
             present(detailViewController, animated: true, completion: nil)
         }
     

@@ -13,7 +13,7 @@ struct NetworkManager {
     
     
     func setUrlFormat(baseUrl: String, id: String="", query: String="") -> String{
-        return baseUrl+id+query
+        return baseUrl+"/"+id+"/"+query
     }
     
     

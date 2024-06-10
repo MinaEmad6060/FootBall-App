@@ -14,6 +14,15 @@ struct CompetitionsDetailsViewData{
     var image: String?
     var longName: String?
     var shortName: String?
+    var winnerImage: String?
+    var winnerLongName: String?
+    var winnerShortName: String?
+}
+
+struct CompetitionTeamViewData{
+    var image: String?
+    var longName: String?
+    var shortName: String?
 }
 
 class CompetitionDetailsViewController: UIViewController {
@@ -21,6 +30,7 @@ class CompetitionDetailsViewController: UIViewController {
     
     
     var competitionDetailsViewModel: CompetitionDetailsViewModelProtocol!
+    var competitionTeamViewData: [CompetitionTeamViewData]!
     
     var numberOfTeamsForCompetition: [String]?
     var numberOfGamesForCompetition: [String]?
@@ -36,11 +46,14 @@ class CompetitionDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         competitionDetailsViewModel = CompetitionDetailsViewModel()
-                
+        
         //just for view data (not a model)
         detailsOfCompetitionViewData = CompetitionsDetailsViewData()
+        competitionTeamViewData = [CompetitionTeamViewData]()
+        
         
         competitionDetailsViewModel.getCompetitionsDetailsFromNetworkService()
+        competitionDetailsViewModel.getTeamsFromNetworkService()
         
         print("Comp Id : \(Constants.competitionId ?? 00)")
         // Do any additional setup after loading the view.
