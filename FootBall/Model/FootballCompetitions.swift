@@ -29,7 +29,7 @@ struct Area: Decodable{
 
 struct Season: Decodable{
     //games
-    var currentMatchday: Int16?
+//    var currentMatchday: Int16?
     var startDate: String?
     var endDate: String?
     var winner: Winner?

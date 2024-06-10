@@ -12,11 +12,8 @@ class AllCompetitionsViewModel: AllCompetitionsViewModelProtocol{
     
     var networkManager = NetworkManager()
     
-    var competitionsViewData: [CompetitionsViewData]?{
-        didSet{
-                (bindCompetitionsToViewController ?? {})()
-        }
-    }
+    var competitionsViewData: [CompetitionsViewData]?
+
     var bindCompetitionsToViewController : (()->())? = {}
 
     
@@ -27,19 +24,16 @@ class AllCompetitionsViewModel: AllCompetitionsViewModelProtocol{
         competitionsViewData = [CompetitionsViewData]()
         networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballCompetitions: FootballCompetitions) in
             var competition = CompetitionsViewData()
-            if let competitions = footballCompetitions.competitions {
-                for i in 0..<competitions.count {
-                   
-                    competition.image = footballCompetitions.competitions?[i].emblemUrl
-                    print("VM url true \(competition.image ?? "none")")
-                    competition.longName = footballCompetitions.competitions?[i].name
-                    competition.shortName = footballCompetitions.competitions?[i].area?.name
-                    competition.numberOfGames = footballCompetitions.competitions?[i].currentSeason?.currentMatchday
+            if let competitionList = footballCompetitions.competitions {
+                for i in 0..<competitionList.count {
+                    competition.image = competitionList[i].emblemUrl
+                    competition.longName = competitionList[i].name
+                    competition.shortName = competitionList[i].area?.name
+                    competition.id = competitionList[i].id
                     self?.competitionsViewData?.append(competition)
                 }
-                
+                self?.bindCompetitionsToViewController?()
             }
-            print("reslt : \(footballCompetitions.competitions?.count ?? 0)")
         }
     }
     

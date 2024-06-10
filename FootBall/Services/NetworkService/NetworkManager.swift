@@ -23,8 +23,8 @@ struct NetworkManager {
         
         AF.request(urlFB, headers: headers).responseDecodable(of: T.self) { response in
             switch response.result {
-            case .success(let upcomingMatches):
-                handler(upcomingMatches)
+            case .success(let FootballDetails):
+                handler(FootballDetails)
             case .failure(let error):
                 print("Error: \(error.localizedDescription)")
             }

@@ -9,11 +9,10 @@ import UIKit
 import Kingfisher
 
 struct CompetitionsViewData{
+    var id: Int16?
     var image: String?
     var longName: String?
     var shortName: String?
-//    var numberOfTeams: Int16?
-    var numberOfGames: Int16?
 }
 
 class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
@@ -24,6 +23,7 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
     var allCompetitionsViewModel: AllCompetitionsViewModelProtocol!
     
     var numberOfTeamsForCompetition: [String]?
+    var numberOfGamesForCompetition: [String]?
     
     //just for view data (not a model)
     var competitionsViewData: [CompetitionsViewData]!
@@ -37,6 +37,8 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
         allCompetitionsViewModel = AllCompetitionsViewModel()
         competitionsViewData = [CompetitionsViewData]()
         
+        allCompetitionsViewModel.getCompetitionsFromNetworkService()
+        
         let nibCustomCell = UINib(nibName: "CompetitionViewCell", bundle: nil)
         competitionsTable.register(nibCustomCell, forCellReuseIdentifier: "competitionCell")
     }
@@ -48,7 +50,7 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
             competitionsTable.deselectRow(at: indexPath, animated: false)
         }
         
-        allCompetitionsViewModel.getCompetitionsFromNetworkService()
+        
         allCompetitionsViewModel.bindCompetitionsToViewController = {
             
             self.competitionsViewData = self.allCompetitionsViewModel.competitionsViewData
@@ -71,10 +73,8 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: "competitionCell", for: indexPath) as! CompetitionViewCell
 
         if competitionsViewData.count > indexPath.row{
-            print("if count")
             cell.competitionLongName.text = competitionsViewData?[indexPath.row].longName
             cell.competitionShortName.text = competitionsViewData?[indexPath.row].shortName
-            cell.competitionNumberOfGames.text = "\(competitionsViewData?[indexPath.row].numberOfGames ?? 0)"
             let placeholderImage = UIImage(systemName: "trophy.fill")
             if let imageURLString = competitionsViewData?[indexPath.row].image, let imageURL = URL(string: imageURLString) {
                 cell.competitionImage.kf.setImage(with: imageURL, placeholder: placeholderImage)
@@ -89,7 +89,7 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let detailViewController = storyboard.instantiateViewController(withIdentifier: "competitionDetails") as! CompetitionDetailsViewController
-            
+            Constants.competitionId = competitionsViewData[indexPath.row].id
             present(detailViewController, animated: true, completion: nil)
         }
     
