@@ -114,7 +114,7 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
     func fetchDataFromApi(){
         allCompetitionsViewModel.getCompetitionsFromNetworkService()
 //        allCompetitionsViewModel.getNumberOfTeamsFromNetworkService()
-        competitionDetailsViewModel.getGamesFromNetworkService()
+//        competitionDetailsViewModel.getGamesFromNetworkService()
     }
     
     
