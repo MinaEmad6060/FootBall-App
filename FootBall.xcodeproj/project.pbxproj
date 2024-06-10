@@ -19,6 +19,7 @@
 		4046D7512C1651A600A01192 /* TeamDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046D7502C1651A600A01192 /* TeamDetailsViewController.swift */; };
 		4046D7532C16711700A01192 /* FootballCompetitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046D7522C16711700A01192 /* FootballCompetitions.swift */; };
 		4046D7552C16715400A01192 /* FootballTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046D7542C16715400A01192 /* FootballTeams.swift */; };
+		4046D7582C1679B300A01192 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046D7572C1679B300A01192 /* NetworkManager.swift */; };
 		C95986C09B983AA133A77FE5 /* Pods_FootBall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0348856709CB99BD8DE76BC2 /* Pods_FootBall.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		4046D7502C1651A600A01192 /* TeamDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewController.swift; sourceTree = "<group>"; };
 		4046D7522C16711700A01192 /* FootballCompetitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballCompetitions.swift; sourceTree = "<group>"; };
 		4046D7542C16715400A01192 /* FootballTeams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballTeams.swift; sourceTree = "<group>"; };
+		4046D7572C1679B300A01192 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		85B2E1CB0827854B7443D2FA /* Pods-FootBall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FootBall.release.xcconfig"; path = "Target Support Files/Pods-FootBall/Pods-FootBall.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +130,7 @@
 		4046D73E2C163FA200A01192 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4046D7562C16799500A01192 /* NetworkService */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -227,6 +230,14 @@
 				4046D7502C1651A600A01192 /* TeamDetailsViewController.swift */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		4046D7562C16799500A01192 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				4046D7572C1679B300A01192 /* NetworkManager.swift */,
+			);
+			path = NetworkService;
 			sourceTree = "<group>";
 		};
 		AC9DDDF161FAD5270DB27C1C /* Frameworks */ = {
@@ -353,6 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4046D7582C1679B300A01192 /* NetworkManager.swift in Sources */,
 				4046D74B2C1642E200A01192 /* CompetitionDetailsViewController.swift in Sources */,
 				400F8CEA2C16289D000515B3 /* AllCompetitionsViewController.swift in Sources */,
 				400F8CE62C16289D000515B3 /* AppDelegate.swift in Sources */,
