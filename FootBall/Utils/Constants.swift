@@ -19,4 +19,7 @@ class Constants{
     
     static let placeholderCompetitionImage = UIImage(systemName: "trophy.fill")
     static let placeholderPlayerImage = UIImage(systemName: "figure.australian.football")
+    
+    static var teamID: Int16 = 2061
+    static var competitionID: Int16 = 2000
 }

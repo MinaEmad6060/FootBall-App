@@ -19,7 +19,7 @@ class TeamDetailsViewModel : TeamDetailsViewModelProtocol{
     var networkManager = NetworkManager()
     
     func getPlayersFromNetworkService() {
-        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "teams", id: "2061")
+        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "teams", id: "\(Constants.teamID)")
         print("url : \(url)")
         teamInformation = TeamInformationViewData()
         teamInformation?.players = [TeamPlayerViewData]()
