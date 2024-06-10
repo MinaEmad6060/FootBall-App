@@ -19,10 +19,9 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
 
     
     @IBOutlet weak var competitionsTable: UITableView!
-    
-    
     @IBOutlet weak var competitionTitle: UILabel!
-    
+    @IBOutlet weak var worldCupOutlet: UIButton!
+
     var allCompetitionsViewModel: AllCompetitionsViewModelProtocol!
     var competitionDetailsViewModel: CompetitionDetailsViewModelProtocol!
     
@@ -33,28 +32,17 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
     var competitionsViewData: [CompetitionsViewData]!
     
     
-    @IBOutlet weak var worldCupOutlet: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         competitionsTable.delegate = self
         competitionsTable.dataSource = self
         
-        self.competitionTitle.layer.cornerRadius = 20
-        self.competitionTitle.clipsToBounds = true
+        setBorderForText()
+        initViewController()
+        fetchDataFromApi()
         
-        self.worldCupOutlet.layer.cornerRadius = 10
-        self.worldCupOutlet.clipsToBounds = true
         
-        allCompetitionsViewModel = AllCompetitionsViewModel()
-        competitionDetailsViewModel = CompetitionDetailsViewModel()
-        competitionsViewData = [CompetitionsViewData]()
-        
-        allCompetitionsViewModel.getCompetitionsFromNetworkService()
-        allCompetitionsViewModel.getNumberOfTeamsFromNetworkService()
-        competitionDetailsViewModel.getGamesFromNetworkService()
-        
-
         let nibCustomCell = UINib(nibName: "CompetitionViewCell", bundle: nil)
         competitionsTable.register(nibCustomCell, forCellReuseIdentifier: "competitionCell")
     }
@@ -66,20 +54,7 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
             competitionsTable.deselectRow(at: indexPath, animated: false)
         }
         
-        
-        allCompetitionsViewModel.bindCompetitionsToViewController = {
-            
-            self.competitionsViewData = self.allCompetitionsViewModel.competitionsViewData
-            
-            DispatchQueue.main.async {
-                self.competitionsTable.reloadData()
-            }
-        }
-        
-        competitionDetailsViewModel.bindGamesToViewController = {
-            
-        }
-        
+        handleClousreToGetDataFromViewModel()
     }
 
 
@@ -87,7 +62,7 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
         if competitionsViewData.count > 0{
             return competitionsViewData.count
         }
-        return 10
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -120,6 +95,38 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
     
     @IBAction func btnWorldCupDetails(_ sender: Any) {
         Constants.competitionID = 2000
+    }
+    
+    func setBorderForText(){
+        self.competitionTitle.layer.cornerRadius = 20
+        self.competitionTitle.clipsToBounds = true
+        self.worldCupOutlet.layer.cornerRadius = 10
+        self.worldCupOutlet.clipsToBounds = true
+    }
+    
+    func initViewController(){
+        allCompetitionsViewModel = AllCompetitionsViewModel()
+        competitionDetailsViewModel = CompetitionDetailsViewModel()
+        competitionsViewData = [CompetitionsViewData]()
+    }
+    
+    
+    func fetchDataFromApi(){
+        allCompetitionsViewModel.getCompetitionsFromNetworkService()
+//        allCompetitionsViewModel.getNumberOfTeamsFromNetworkService()
+        competitionDetailsViewModel.getGamesFromNetworkService()
+    }
+    
+    
+    func handleClousreToGetDataFromViewModel(){
+        allCompetitionsViewModel.bindCompetitionsToViewController = {
+            
+            self.competitionsViewData = self.allCompetitionsViewModel.competitionsViewData
+            
+            DispatchQueue.main.async {
+                self.competitionsTable.reloadData()
+            }
+        }
     }
 }
 

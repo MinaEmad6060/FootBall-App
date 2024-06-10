@@ -29,69 +29,38 @@ struct CompetitionTeamViewData{
 class CompetitionDetailsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var competitionLongName: UILabel!
-    
     @IBOutlet weak var competitionImage: UIImageView!
-    
     @IBOutlet weak var competitionShortName: UILabel!
-    
     @IBOutlet weak var competitionStartDate: UILabel!
-    
     @IBOutlet weak var competitionEndDate: UILabel!
-    
-    
     @IBOutlet weak var winnerImage: UIImageView!
-    
     @IBOutlet weak var winnerLongName: UILabel!
-    
     @IBOutlet weak var winnerShortName: UILabel!
-
-    
     @IBOutlet weak var teamsTable: UITableView!
-    
-    
     @IBOutlet weak var lastVersionTitle: UILabel!
-    
     @IBOutlet weak var winnerTitle: UILabel!
-    
-    
     @IBOutlet weak var teamsTitle: UILabel!
-    
-    
-    
+  
     var competitionDetailsViewModel: CompetitionDetailsViewModelProtocol!
-    
     
     var numberOfTeamsForCompetition: [String]?
     var numberOfGamesForCompetition: [String]?
     
-    
     //just for view data (not a model)
     var detailsOfCompetitionViewData: CompetitionsDetailsViewData!
     var competitionTeamViewData: [CompetitionTeamViewData]!
-    
-    @IBAction func btnBack(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
         teamsTable.delegate = self
         teamsTable.dataSource = self
+        
         setBorderRadiusForText()
         clipsToBoundsForText()
-        
-        competitionDetailsViewModel = CompetitionDetailsViewModel()
-        
-        //just for view data (not a model)
-        detailsOfCompetitionViewData = CompetitionsDetailsViewData()
-        competitionTeamViewData = [CompetitionTeamViewData]()
-        
-        
-        competitionDetailsViewModel.getCompetitionsDetailsFromNetworkService()
-        competitionDetailsViewModel.getTeamsFromNetworkService()
-       
-        
+        initViewController()
+        fetchDataFromApi()
+      
         let nibCustomCell = UINib(nibName: "TeamViewCell", bundle: nil)
         teamsTable.register(nibCustomCell, forCellReuseIdentifier: "competitionTeamsCell")
         
@@ -137,12 +106,11 @@ class CompetitionDetailsViewController: UIViewController,UITableViewDelegate, UI
         if competitionTeamViewData.count > 0{
             return competitionTeamViewData.count
         }
-        return 10
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "competitionTeamsCell", for: indexPath) as! TeamViewCell
-        
         
         if competitionTeamViewData.count > indexPath.row{
             cell.teamLongName.text = competitionTeamViewData?[indexPath.row].longName
@@ -159,14 +127,13 @@ class CompetitionDetailsViewController: UIViewController,UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let detailsViewController = storyboard.instantiateViewController(withIdentifier: "teamDetails") as! TeamDetailsViewController
-            if competitionTeamViewData.count > indexPath.row{
-                Constants.teamID = competitionTeamViewData[indexPath.row].id ?? 2061
-            }
-            present(detailsViewController, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailsViewController = storyboard.instantiateViewController(withIdentifier: "teamDetails") as! TeamDetailsViewController
+        if competitionTeamViewData.count > indexPath.row{
+            Constants.teamID = competitionTeamViewData[indexPath.row].id ?? 2061
         }
-    
+        present(detailsViewController, animated: true, completion: nil)
+    }
     
     func setBorderRadiusForText(){
         self.lastVersionTitle.layer.cornerRadius = 20
@@ -182,6 +149,21 @@ class CompetitionDetailsViewController: UIViewController,UITableViewDelegate, UI
         self.teamsTitle.clipsToBounds = true
         self.competitionLongName.clipsToBounds = true
         self.competitionShortName.clipsToBounds = true
+    }
+    
+    @IBAction func btnBack(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
+    func initViewController(){
+        competitionDetailsViewModel = CompetitionDetailsViewModel()
+        detailsOfCompetitionViewData = CompetitionsDetailsViewData()
+        competitionTeamViewData = [CompetitionTeamViewData]()
+    }
+    
+    func fetchDataFromApi(){
+        competitionDetailsViewModel.getCompetitionsDetailsFromNetworkService()
+        competitionDetailsViewModel.getTeamsFromNetworkService()
     }
     
 

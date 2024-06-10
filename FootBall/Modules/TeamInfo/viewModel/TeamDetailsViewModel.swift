@@ -11,7 +11,6 @@ import Foundation
 
 class TeamDetailsViewModel : TeamDetailsViewModelProtocol{
     
-    
     var teamInformation: TeamInformationViewData?
        
     var bindTeamInformationToViewController: (() -> ())?

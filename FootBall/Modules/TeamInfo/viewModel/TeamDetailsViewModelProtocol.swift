@@ -10,6 +10,8 @@ import Foundation
 
 protocol TeamDetailsViewModelProtocol{
     var teamInformation: TeamInformationViewData? { get set }
+    
     var bindTeamInformationToViewController : (()->())? { get set }
+    
     func getPlayersFromNetworkService()
 }

@@ -36,9 +36,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5Q-sf-dGs">
-                        <rect key="frame" x="182" y="24" width="287" height="48"/>
+                        <rect key="frame" x="182" y="24" width="287" height="69"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="48" id="1aO-60-sYP"/>
+                            <constraint firstAttribute="height" constant="69" id="1aO-60-sYP"/>
                             <constraint firstAttribute="width" constant="287" id="W95-VU-MyP"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
@@ -51,7 +51,7 @@
                     <constraint firstItem="RiE-Qd-J2S" firstAttribute="leading" secondItem="x5Q-sf-dGs" secondAttribute="leading" id="L7t-tV-ovh"/>
                     <constraint firstItem="x5Q-sf-dGs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="OpN-sG-77D"/>
                     <constraint firstAttribute="trailing" secondItem="RiE-Qd-J2S" secondAttribute="trailing" constant="8" id="Oyx-jt-mux"/>
-                    <constraint firstItem="RiE-Qd-J2S" firstAttribute="top" secondItem="x5Q-sf-dGs" secondAttribute="bottom" constant="22" id="VH9-FY-Ciu"/>
+                    <constraint firstItem="RiE-Qd-J2S" firstAttribute="top" secondItem="x5Q-sf-dGs" secondAttribute="bottom" constant="1" id="VH9-FY-Ciu"/>
                     <constraint firstAttribute="trailing" secondItem="x5Q-sf-dGs" secondAttribute="trailing" constant="8" id="dfd-3o-dF3"/>
                     <constraint firstItem="x5Q-sf-dGs" firstAttribute="leading" secondItem="6cQ-Wl-TXE" secondAttribute="trailing" constant="20" id="nwD-bu-P5r"/>
                     <constraint firstItem="6cQ-Wl-TXE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="rG8-zy-j0C"/>

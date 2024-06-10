@@ -10,18 +10,16 @@ import Foundation
 
 class AllCompetitionsViewModel: AllCompetitionsViewModelProtocol{
     
-    var networkManager = NetworkManager()
-    
     var competitionsViewData: [CompetitionsViewData]?
+    var networkManager = NetworkManager()
 
     var bindCompetitionsToViewController : (()->())? = {}
-
     var bindTeamsToViewController: (() -> ())?
         
-    var competitionsDetailsViewData: CompetitionsDetailsViewData?
-    var competitionTeamViewData: [CompetitionTeamViewData]?
+//    var competitionsDetailsViewData: CompetitionsDetailsViewData?
+//    var competitionTeamViewData: [CompetitionTeamViewData]?
     
-    var numberOfTeamsForCompetition: Int16?
+//    var numberOfTeamsForCompetition: Int16?
     
     
     func getCompetitionsFromNetworkService(){
@@ -43,11 +41,11 @@ class AllCompetitionsViewModel: AllCompetitionsViewModelProtocol{
     }
     
     
-    func getNumberOfTeamsFromNetworkService() {
-        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "competitions", id: "\(Constants.competitionID)", query: "teams")
-        competitionTeamViewData = [CompetitionTeamViewData]()
-        networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballTeams: FootballTeams) in
-            self?.numberOfTeamsForCompetition = footballTeams.count
-        }
-    }
+//    func getNumberOfTeamsFromNetworkService() {
+//        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "competitions", id: "\(Constants.competitionID)", query: "teams")
+//        competitionTeamViewData = [CompetitionTeamViewData]()
+//        networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballTeams: FootballTeams) in
+//            self?.numberOfTeamsForCompetition = footballTeams.count
+//        }
+//    }
 }
