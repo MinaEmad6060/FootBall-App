@@ -12,8 +12,8 @@ import Alamofire
 struct NetworkManager {
     
     
-    func setUrlFormat(baseUrl: String, id: String="", query: String="") -> String{
-        return baseUrl+"/"+id+"/"+query
+    func setUrlFormat(baseUrl: String,request: String, id: String="", query: String="") -> String{
+        return baseUrl+"/"+request+"/"+id+"/"+query
     }
     
     

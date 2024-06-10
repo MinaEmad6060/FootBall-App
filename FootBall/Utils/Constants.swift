@@ -10,7 +10,7 @@ import Alamofire
 
 
 class Constants{
-    static let baseUrl = "https://api.football-data.org/v2/competitions"
+    static let baseUrl = "https://api.football-data.org/v2"
     static let headers: HTTPHeaders = [
         "Content-Type": "application/json",
         "X-Auth-Token": "84c35a8dce344f05bc3b538e50e8ca0b"

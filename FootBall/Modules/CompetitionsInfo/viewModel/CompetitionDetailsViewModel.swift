@@ -22,7 +22,7 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
     var numberOfGamesForCompetition: Int16?
     
     func getCompetitionsDetailsFromNetworkService() {
-        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, id: "2000")
+        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "competitions", id: "2000")
         competitionsDetailsViewData = CompetitionsDetailsViewData()
         networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballCompetition: Competition) in
             
@@ -41,7 +41,7 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
     }
     
     func getTeamsFromNetworkService() {
-        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, id: "2000", query: "teams")
+        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "competitions", id: "2000", query: "teams")
         print("url : \(url)")
         competitionTeamViewData = [CompetitionTeamViewData]()
         networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballTeams: FootballTeams) in
@@ -60,7 +60,7 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
     }
     
     func getGamesFromNetworkService() {
-        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, id: "2000", query: "matches")
+        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "competitions", id: "2000", query: "matches")
         print("url : \(url)")
         networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballGames: FootballGames) in
             

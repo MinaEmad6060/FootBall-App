@@ -32,6 +32,7 @@
 		40B943E12C17514500AE07F7 /* FootballGames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B943E02C17514500AE07F7 /* FootballGames.swift */; };
 		40B943E32C175C2700AE07F7 /* TeamDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B943E22C175C2700AE07F7 /* TeamDetailsViewModel.swift */; };
 		40B943E52C175C3100AE07F7 /* TeamDetailsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B943E42C175C3100AE07F7 /* TeamDetailsViewModelProtocol.swift */; };
+		40B943E72C17649F00AE07F7 /* FootBallPlayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B943E62C17649F00AE07F7 /* FootBallPlayers.swift */; };
 		C95986C09B983AA133A77FE5 /* Pods_FootBall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0348856709CB99BD8DE76BC2 /* Pods_FootBall.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		40B943E02C17514500AE07F7 /* FootballGames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballGames.swift; sourceTree = "<group>"; };
 		40B943E22C175C2700AE07F7 /* TeamDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewModel.swift; sourceTree = "<group>"; };
 		40B943E42C175C3100AE07F7 /* TeamDetailsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewModelProtocol.swift; sourceTree = "<group>"; };
+		40B943E62C17649F00AE07F7 /* FootBallPlayers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootBallPlayers.swift; sourceTree = "<group>"; };
 		85B2E1CB0827854B7443D2FA /* Pods-FootBall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FootBall.release.xcconfig"; path = "Target Support Files/Pods-FootBall/Pods-FootBall.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +131,7 @@
 				4046D7522C16711700A01192 /* FootballCompetitions.swift */,
 				4046D7542C16715400A01192 /* FootballTeams.swift */,
 				40B943E02C17514500AE07F7 /* FootballGames.swift */,
+				40B943E62C17649F00AE07F7 /* FootBallPlayers.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 				40B943DD2C17380500AE07F7 /* CompetitionDetailsViewModel.swift in Sources */,
 				4046D7582C1679B300A01192 /* NetworkManager.swift in Sources */,
 				40B943E52C175C3100AE07F7 /* TeamDetailsViewModelProtocol.swift in Sources */,
+				40B943E72C17649F00AE07F7 /* FootBallPlayers.swift in Sources */,
 				40ACC5732C1705FD00A9A049 /* AllCompetitionsViewModel.swift in Sources */,
 				40B943DF2C17381000AE07F7 /* CompetitionDetailsViewModelProtocol.swift in Sources */,
 				4046D74B2C1642E200A01192 /* CompetitionDetailsViewController.swift in Sources */,

@@ -7,15 +7,21 @@
 
 import UIKit
 
+struct TeamPlayer{
+    var image: String?
+    var name: String?
+    var position: String?
+    var nationality: String?
+}
+
+
+
 class TeamDetailsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
-    
-    
+
 
     @IBOutlet weak var playersTable: UITableView!
     
-    
-    
-    
+
     
     @IBAction func btnBack(_ sender: Any) {
         self.dismiss(animated: true)
