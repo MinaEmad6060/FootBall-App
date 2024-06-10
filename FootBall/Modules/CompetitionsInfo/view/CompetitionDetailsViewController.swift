@@ -20,6 +20,7 @@ struct CompetitionsDetailsViewData{
 }
 
 struct CompetitionTeamViewData{
+    var id: Int16?
     var image: String?
     var longName: String?
     var shortName: String?
@@ -47,6 +48,16 @@ class CompetitionDetailsViewController: UIViewController,UITableViewDelegate, UI
     
     @IBOutlet weak var teamsTable: UITableView!
     
+    
+    @IBOutlet weak var lastVersionTitle: UILabel!
+    
+    @IBOutlet weak var winnerTitle: UILabel!
+    
+    
+    @IBOutlet weak var teamsTitle: UILabel!
+    
+    
+    
     var competitionDetailsViewModel: CompetitionDetailsViewModelProtocol!
     
     
@@ -67,6 +78,8 @@ class CompetitionDetailsViewController: UIViewController,UITableViewDelegate, UI
         
         teamsTable.delegate = self
         teamsTable.dataSource = self
+        setBorderRadiusForText()
+        clipsToBoundsForText()
         
         competitionDetailsViewModel = CompetitionDetailsViewModel()
         
@@ -133,6 +146,7 @@ class CompetitionDetailsViewController: UIViewController,UITableViewDelegate, UI
         
         if competitionTeamViewData.count > indexPath.row{
             cell.teamLongName.text = competitionTeamViewData?[indexPath.row].longName
+            cell.teamLongName.text = competitionTeamViewData?[indexPath.row].longName
             cell.teamShortName.text = competitionTeamViewData?[indexPath.row].shortName
             if let imageURLString = competitionTeamViewData?[indexPath.row].image, let imageURL = URL(string: imageURLString) {
                 cell.teamImage.kf.setImage(with: imageURL, placeholder: Constants.placeholderCompetitionImage)
@@ -142,6 +156,32 @@ class CompetitionDetailsViewController: UIViewController,UITableViewDelegate, UI
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let detailsViewController = storyboard.instantiateViewController(withIdentifier: "teamDetails") as! TeamDetailsViewController
+            if competitionTeamViewData.count > indexPath.row{
+                Constants.teamID = competitionTeamViewData[indexPath.row].id ?? 2061
+            }
+            present(detailsViewController, animated: true, completion: nil)
+        }
+    
+    
+    func setBorderRadiusForText(){
+        self.lastVersionTitle.layer.cornerRadius = 20
+        self.winnerTitle.layer.cornerRadius = 20
+        self.teamsTitle.layer.cornerRadius = 20
+        self.competitionLongName.layer.cornerRadius = 20
+        self.competitionShortName.layer.cornerRadius = 10
+    }
+    
+    func clipsToBoundsForText(){
+        self.lastVersionTitle.clipsToBounds = true
+        self.winnerTitle.clipsToBounds = true
+        self.teamsTitle.clipsToBounds = true
+        self.competitionLongName.clipsToBounds = true
+        self.competitionShortName.clipsToBounds = true
     }
     
 

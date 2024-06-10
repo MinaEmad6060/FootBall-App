@@ -47,12 +47,8 @@ class TeamDetailsViewController: UIViewController,UITableViewDelegate, UITableVi
     @IBOutlet weak var teamColors: UILabel!
     
     @IBOutlet weak var teamWebsite: UILabel!
-    
 
-    
-    @IBAction func btnBack(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
+    @IBOutlet weak var playerTitle: UILabel!
     
     
     var teamDetailsViewModel: TeamDetailsViewModelProtocol!
@@ -119,10 +115,25 @@ class TeamDetailsViewController: UIViewController,UITableViewDelegate, UITableVi
                 cell.playerImage.image = Constants.placeholderCompetitionImage
             }
         }
-        
-        
-        
+
         return cell
     }
+    
+    
+    @IBAction func btnBack(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 
+    
+    func setBorderRadiusForText(){
+        self.playerTitle.layer.cornerRadius = 20
+        self.teamLongName.layer.cornerRadius = 20
+        self.teamShortName.layer.cornerRadius = 20
+    }
+    
+    func clipsToBoundsForText(){
+        self.playerTitle.clipsToBounds = true
+        self.teamLongName.clipsToBounds = true
+        self.teamShortName.clipsToBounds = true
+    }
 }

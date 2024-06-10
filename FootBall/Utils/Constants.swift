@@ -15,11 +15,14 @@ class Constants{
         "Content-Type": "application/json",
         "X-Auth-Token": "84c35a8dce344f05bc3b538e50e8ca0b"
     ]
-    static var competitionId: Int16?
     
-    static let placeholderCompetitionImage = UIImage(systemName: "trophy.fill")
-    static let placeholderPlayerImage = UIImage(systemName: "figure.australian.football")
+    static let placeholderCompetitionImage = UIImage(named: "team")
+    static let placeholderPlayerImage = UIImage(named: "player")
     
     static var teamID: Int16 = 2061
     static var competitionID: Int16 = 2000
+
+    static func generateRandomNumber(start: Int16, end: Int16) -> Int {
+        return Int.random(in: Int(start)...Int(end))
+    }
 }

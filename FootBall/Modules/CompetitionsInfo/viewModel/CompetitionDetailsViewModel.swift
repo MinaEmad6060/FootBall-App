@@ -49,6 +49,7 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
             if let teams = footballTeams.teams{
                 var team = CompetitionTeamViewData()
                 for i in 0..<teams.count{
+                    team.id = teams[i].id
                     team.image = teams[i].crestUrl
                     team.longName = teams[i].name
                     team.shortName = teams[i].shortName

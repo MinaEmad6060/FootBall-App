@@ -15,6 +15,7 @@ struct FootballTeams: Decodable{
 
 struct Team: Decodable{
     //longName
+    var id: Int16?
     var name:String?
     var shortName:String?
     var crestUrl:String?

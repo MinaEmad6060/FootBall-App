@@ -20,6 +20,9 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
     
     @IBOutlet weak var competitionsTable: UITableView!
     
+    
+    @IBOutlet weak var competitionTitle: UILabel!
+    
     var allCompetitionsViewModel: AllCompetitionsViewModelProtocol!
     var competitionDetailsViewModel: CompetitionDetailsViewModelProtocol!
     
@@ -29,11 +32,19 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
     //just for view data (not a model)
     var competitionsViewData: [CompetitionsViewData]!
     
+    
+    @IBOutlet weak var worldCupOutlet: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         competitionsTable.delegate = self
         competitionsTable.dataSource = self
+        
+        self.competitionTitle.layer.cornerRadius = 20
+        self.competitionTitle.clipsToBounds = true
+        
+        self.worldCupOutlet.layer.cornerRadius = 10
+        self.worldCupOutlet.clipsToBounds = true
         
         allCompetitionsViewModel = AllCompetitionsViewModel()
         competitionDetailsViewModel = CompetitionDetailsViewModel()
@@ -85,6 +96,8 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
         if competitionsViewData.count > indexPath.row{
             cell.competitionLongName.text = competitionsViewData?[indexPath.row].longName
             cell.competitionShortName.text = competitionsViewData?[indexPath.row].shortName
+            cell.competitionNumberOfTeams.text = "\(Constants.generateRandomNumber(start: 10, end: 32))"
+            cell.competitionNumberOfGames.text = "\(Constants.generateRandomNumber(start: 50, end: 100))"
             let placeholderImage = UIImage(systemName: "trophy.fill")
             if let imageURLString = competitionsViewData?[indexPath.row].image, let imageURL = URL(string: imageURLString) {
                 cell.competitionImage.kf.setImage(with: imageURL, placeholder: placeholderImage)
@@ -97,14 +110,16 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let detailViewController = storyboard.instantiateViewController(withIdentifier: "competitionDetails") as! CompetitionDetailsViewController
-            if competitionsViewData.count > indexPath.row{
-                Constants.competitionId = competitionsViewData[indexPath.row].id
-            }
-            present(detailViewController, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let detailsViewController = storyboard.instantiateViewController(withIdentifier: "competitionDetails") as! CompetitionDetailsViewController
+        if competitionsViewData.count > indexPath.row{
+            Constants.competitionID = competitionsViewData[indexPath.row].id ?? -1
         }
+        present(detailsViewController, animated: true, completion: nil)
+    }
     
-    
+    @IBAction func btnWorldCupDetails(_ sender: Any) {
+        Constants.competitionID = 2000
+    }
 }
 
