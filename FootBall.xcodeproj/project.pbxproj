@@ -29,6 +29,7 @@
 		40B943DB2C1735FB00AE07F7 /* PlayerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40B943D92C1735FB00AE07F7 /* PlayerViewCell.xib */; };
 		40B943DD2C17380500AE07F7 /* CompetitionDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B943DC2C17380500AE07F7 /* CompetitionDetailsViewModel.swift */; };
 		40B943DF2C17381000AE07F7 /* CompetitionDetailsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B943DE2C17381000AE07F7 /* CompetitionDetailsViewModelProtocol.swift */; };
+		40B943E12C17514500AE07F7 /* FootballGames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B943E02C17514500AE07F7 /* FootballGames.swift */; };
 		C95986C09B983AA133A77FE5 /* Pods_FootBall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0348856709CB99BD8DE76BC2 /* Pods_FootBall.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		40B943D92C1735FB00AE07F7 /* PlayerViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerViewCell.xib; sourceTree = "<group>"; };
 		40B943DC2C17380500AE07F7 /* CompetitionDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionDetailsViewModel.swift; sourceTree = "<group>"; };
 		40B943DE2C17381000AE07F7 /* CompetitionDetailsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompetitionDetailsViewModelProtocol.swift; sourceTree = "<group>"; };
+		40B943E02C17514500AE07F7 /* FootballGames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballGames.swift; sourceTree = "<group>"; };
 		85B2E1CB0827854B7443D2FA /* Pods-FootBall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FootBall.release.xcconfig"; path = "Target Support Files/Pods-FootBall/Pods-FootBall.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +124,7 @@
 			children = (
 				4046D7522C16711700A01192 /* FootballCompetitions.swift */,
 				4046D7542C16715400A01192 /* FootballTeams.swift */,
+				40B943E02C17514500AE07F7 /* FootballGames.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				4046D74B2C1642E200A01192 /* CompetitionDetailsViewController.swift in Sources */,
 				400F8CEA2C16289D000515B3 /* AllCompetitionsViewController.swift in Sources */,
 				400F8CE62C16289D000515B3 /* AppDelegate.swift in Sources */,
+				40B943E12C17514500AE07F7 /* FootballGames.swift in Sources */,
 				4046D7532C16711700A01192 /* FootballCompetitions.swift in Sources */,
 				40ACC5712C17021B00A9A049 /* Constants.swift in Sources */,
 				4046D7552C16715400A01192 /* FootballTeams.swift in Sources */,

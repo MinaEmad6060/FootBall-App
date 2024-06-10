@@ -14,4 +14,5 @@ protocol CompetitionDetailsViewModelProtocol{
     var bindTeamsToViewController : (()->())? { get set }
     func getCompetitionsDetailsFromNetworkService()
     func getTeamsFromNetworkService()
+    func getGamesFromNetworkService()
 }

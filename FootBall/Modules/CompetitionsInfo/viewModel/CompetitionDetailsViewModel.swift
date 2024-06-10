@@ -20,7 +20,7 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
     var competitionTeamViewData: [CompetitionTeamViewData]?
     
     var numberOfTeamsForCompetition: Int16?
-//    var numberOfGamesForCompetition: Int16?
+    var numberOfGamesForCompetition: Int16?
     
     func getCompetitionsDetailsFromNetworkService() {
         let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, id: "2000")
@@ -59,6 +59,17 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
                 self?.competitionTeamViewData?.append(team)
                 print("team : \(self?.competitionTeamViewData?[0].longName ?? "none")")
             }
+        }
+    }
+    
+    func getGamesFromNetworkService() {
+        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, id: "2000", query: "matches")
+        print("url : \(url)")
+        networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballGames: FootballGames) in
+            
+            self?.numberOfGamesForCompetition = footballGames.count
+            
+            print("Games : \(self?.numberOfGamesForCompetition ?? -1)")
         }
     }
   

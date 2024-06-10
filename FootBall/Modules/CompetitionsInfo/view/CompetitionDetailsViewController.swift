@@ -54,6 +54,7 @@ class CompetitionDetailsViewController: UIViewController {
         
         competitionDetailsViewModel.getCompetitionsDetailsFromNetworkService()
         competitionDetailsViewModel.getTeamsFromNetworkService()
+        competitionDetailsViewModel.getGamesFromNetworkService()
         
         print("Comp Id : \(Constants.competitionId ?? 00)")
         // Do any additional setup after loading the view.
