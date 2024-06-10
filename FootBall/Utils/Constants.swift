@@ -16,4 +16,7 @@ class Constants{
         "X-Auth-Token": "84c35a8dce344f05bc3b538e50e8ca0b"
     ]
     static var competitionId: Int16?
+    
+    static let placeholderCompetitionImage = UIImage(systemName: "trophy.fill")
+    static let placeholderPlayerImage = UIImage(systemName: "figure.australian.football")
 }

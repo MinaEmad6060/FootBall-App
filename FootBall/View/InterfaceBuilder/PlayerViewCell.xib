@@ -110,6 +110,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="Bxn-EK-jOK"/>
+            <connections>
+                <outlet property="playerImage" destination="b3p-2k-80h" id="6je-2Y-hj8"/>
+                <outlet property="playerName" destination="kWk-or-19r" id="ZOp-Fm-5Mf"/>
+                <outlet property="playerNationality" destination="y85-4s-2Fy" id="O0g-Fo-0kZ"/>
+                <outlet property="playerPosition" destination="cKA-PU-Nie" id="pe1-48-bIy"/>
+            </connections>
             <point key="canvasLocation" x="103.81679389312977" y="3.8732394366197185"/>
         </tableViewCell>
     </objects>

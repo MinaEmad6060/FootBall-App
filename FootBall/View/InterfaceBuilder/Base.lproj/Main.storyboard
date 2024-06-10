@@ -349,7 +349,15 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="competitionEndDate" destination="X0u-yH-fXu" id="aCn-ic-HF6"/>
+                        <outlet property="competitionImage" destination="zbg-Zc-7pP" id="R96-CO-rlQ"/>
+                        <outlet property="competitionLongName" destination="bYj-k8-b1H" id="2dL-fQ-Xcb"/>
+                        <outlet property="competitionShortName" destination="MoW-1J-WuV" id="cPL-Ue-3fs"/>
+                        <outlet property="competitionStartDate" destination="VL5-pj-Za6" id="Wtj-n3-DAK"/>
                         <outlet property="teamsTable" destination="mUc-iw-LVF" id="DZC-dI-VdN"/>
+                        <outlet property="winnerImage" destination="J5i-H4-hzU" id="ctS-jf-ftM"/>
+                        <outlet property="winnerLongName" destination="dAT-WQ-5cY" id="uyL-io-BFk"/>
+                        <outlet property="winnerShortName" destination="oQv-iN-Nbn" id="AmA-0H-pHu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zoe-Cc-M5V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -588,6 +596,13 @@
                     <navigationItem key="navigationItem" id="hRN-bg-1sR"/>
                     <connections>
                         <outlet property="playersTable" destination="DD8-P9-N5a" id="Umk-HB-fx2"/>
+                        <outlet property="teamColors" destination="1wR-7i-qOs" id="2Eq-GV-bAI"/>
+                        <outlet property="teamFounded" destination="GeW-QK-tQO" id="4Vr-di-wCP"/>
+                        <outlet property="teamImage" destination="uml-su-qkP" id="xCB-9d-GQ9"/>
+                        <outlet property="teamLongName" destination="Ibb-aq-Iil" id="Ujf-YI-r0u"/>
+                        <outlet property="teamShortName" destination="r9u-Jf-SdC" id="Q3d-d4-9jq"/>
+                        <outlet property="teamStadium" destination="NgI-SI-tqv" id="LGr-MK-mSJ"/>
+                        <outlet property="teamWebsite" destination="p9z-bw-vPV" id="f1a-a3-f2D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ccr-gb-hAd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

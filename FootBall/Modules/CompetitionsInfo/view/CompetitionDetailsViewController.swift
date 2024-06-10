@@ -27,19 +27,36 @@ struct CompetitionTeamViewData{
 
 class CompetitionDetailsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var competitionLongName: UILabel!
+    
+    @IBOutlet weak var competitionImage: UIImageView!
+    
+    @IBOutlet weak var competitionShortName: UILabel!
+    
+    @IBOutlet weak var competitionStartDate: UILabel!
+    
+    @IBOutlet weak var competitionEndDate: UILabel!
+    
+    
+    @IBOutlet weak var winnerImage: UIImageView!
+    
+    @IBOutlet weak var winnerLongName: UILabel!
+    
+    @IBOutlet weak var winnerShortName: UILabel!
+
     
     @IBOutlet weak var teamsTable: UITableView!
     
     var competitionDetailsViewModel: CompetitionDetailsViewModelProtocol!
-    var teamDetailsViewModel: TeamDetailsViewModel!
-    var competitionTeamViewData: [CompetitionTeamViewData]!
+    
     
     var numberOfTeamsForCompetition: [String]?
     var numberOfGamesForCompetition: [String]?
     
+    
     //just for view data (not a model)
     var detailsOfCompetitionViewData: CompetitionsDetailsViewData!
-    
+    var competitionTeamViewData: [CompetitionTeamViewData]!
     
     @IBAction func btnBack(_ sender: Any) {
         self.dismiss(animated: true)
@@ -52,7 +69,6 @@ class CompetitionDetailsViewController: UIViewController,UITableViewDelegate, UI
         teamsTable.dataSource = self
         
         competitionDetailsViewModel = CompetitionDetailsViewModel()
-        teamDetailsViewModel = TeamDetailsViewModel()
         
         //just for view data (not a model)
         detailsOfCompetitionViewData = CompetitionsDetailsViewData()
@@ -60,13 +76,12 @@ class CompetitionDetailsViewController: UIViewController,UITableViewDelegate, UI
         
         
         competitionDetailsViewModel.getCompetitionsDetailsFromNetworkService()
+        competitionDetailsViewModel.getTeamsFromNetworkService()
        
         
         let nibCustomCell = UINib(nibName: "TeamViewCell", bundle: nil)
         teamsTable.register(nibCustomCell, forCellReuseIdentifier: "competitionTeamsCell")
         
-        print("Comp Id : \(Constants.competitionId ?? 00)")
-        // Do any additional setup after loading the view.
     }
     
     
@@ -74,19 +89,57 @@ class CompetitionDetailsViewController: UIViewController,UITableViewDelegate, UI
         super.viewWillAppear(animated)
         
         competitionDetailsViewModel.bindCompetitionsDetailsToViewController = {
-            
             self.detailsOfCompetitionViewData = self.competitionDetailsViewModel.competitionsDetailsViewData
+            
+            DispatchQueue.main.async {
+                self.competitionEndDate.text = self.detailsOfCompetitionViewData.endDate
+                self.competitionStartDate.text = self.detailsOfCompetitionViewData.startDate
+                self.competitionLongName.text = self.detailsOfCompetitionViewData.longName
+                self.competitionShortName.text = self.detailsOfCompetitionViewData.shortName
+                self.winnerLongName.text = self.detailsOfCompetitionViewData.winnerLongName
+                self.winnerShortName.text = self.detailsOfCompetitionViewData.winnerShortName
+                if let competitionImageURLString = self.detailsOfCompetitionViewData.image,
+                   let winnerImageURLString = self.detailsOfCompetitionViewData.winnerImage,
+                   let competitionImageURL = URL(string: competitionImageURLString),
+                   let winnerImageURL = URL(string: winnerImageURLString){
+                    self.competitionImage.kf.setImage(with: competitionImageURL, placeholder: Constants.placeholderCompetitionImage)
+                    self.winnerImage.kf.setImage(with: winnerImageURL, placeholder: Constants.placeholderCompetitionImage)
+                } else {
+                    self.winnerImage.image = Constants.placeholderCompetitionImage
+                }
+            }
+        }
+        competitionDetailsViewModel.bindTeamsToViewController = {
+            self.competitionTeamViewData = self.competitionDetailsViewModel.competitionTeamViewData
+            DispatchQueue.main.async {
+                self.teamsTable.reloadData()
+            }
         }
         
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("number of teams \(competitionTeamViewData.count)")
+        if competitionTeamViewData.count > 0{
+            return competitionTeamViewData.count
+        }
         return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "competitionTeamsCell", for: indexPath) as! TeamViewCell
+        
+        
+        if competitionTeamViewData.count > indexPath.row{
+            cell.teamLongName.text = competitionTeamViewData?[indexPath.row].longName
+            cell.teamShortName.text = competitionTeamViewData?[indexPath.row].shortName
+            if let imageURLString = competitionTeamViewData?[indexPath.row].image, let imageURL = URL(string: imageURLString) {
+                cell.teamImage.kf.setImage(with: imageURL, placeholder: Constants.placeholderCompetitionImage)
+            } else {
+                cell.teamImage.image = Constants.placeholderCompetitionImage
+            }
+        }
         
         return cell
     }

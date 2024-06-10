@@ -12,6 +12,7 @@ protocol CompetitionDetailsViewModelProtocol{
     var numberOfGamesForCompetition: Int16? { get set }
     var competitionTeamViewData: [CompetitionTeamViewData]? { get set }
     var bindCompetitionsDetailsToViewController : (()->())? { get set }
+    var bindTeamsToViewController : (()->())? { get set }
     var bindGamesToViewController : (()->())? { get set }
     func getCompetitionsDetailsFromNetworkService()
     func getTeamsFromNetworkService()

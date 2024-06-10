@@ -12,6 +12,7 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
     
     
     var bindCompetitionsDetailsToViewController: (() -> ())?
+    var bindTeamsToViewController: (() -> ())?
     var bindGamesToViewController: (() -> ())?
     
     var networkManager = NetworkManager()
@@ -33,8 +34,8 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
             self?.competitionsDetailsViewData?.shortName = footballCompetition.area?.name
             
             self?.competitionsDetailsViewData?.winnerImage = footballCompetition.currentSeason?.winner?.crestUrl
-            self?.competitionsDetailsViewData?.longName = footballCompetition.currentSeason?.winner?.name
-            self?.competitionsDetailsViewData?.shortName = footballCompetition.currentSeason?.winner?.tla
+            self?.competitionsDetailsViewData?.winnerLongName = footballCompetition.currentSeason?.winner?.name
+            self?.competitionsDetailsViewData?.winnerShortName = footballCompetition.currentSeason?.winner?.tla
             
             self?.bindCompetitionsDetailsToViewController?()
         }
@@ -42,7 +43,6 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
     
     func getTeamsFromNetworkService() {
         let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "competitions", id: "2000", query: "teams")
-//        print("url : \(url)")
         competitionTeamViewData = [CompetitionTeamViewData]()
         networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballTeams: FootballTeams) in
           
@@ -52,22 +52,18 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
                     team.image = teams[i].crestUrl
                     team.longName = teams[i].name
                     team.shortName = teams[i].shortName
+                    self?.competitionTeamViewData?.append(team)
                 }
-                self?.competitionTeamViewData?.append(team)
-//                print("team : \(self?.competitionTeamViewData?[0].longName ?? "none")")
+                self?.bindTeamsToViewController?()
             }
         }
     }
     
     func getGamesFromNetworkService() {
         let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "competitions", id: "2000", query: "matches")
-//        print("url : \(url)")
         networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballGames: FootballGames) in
-            
             self?.numberOfGamesForCompetition = footballGames.count
             self?.bindGamesToViewController?()
-
-//            print("#Alll Games : \(self?.numberOfGamesForCompetition ?? -1)")
         }
     }
   
