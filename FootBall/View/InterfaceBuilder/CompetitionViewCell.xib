@@ -21,8 +21,13 @@
                         <rect key="frame" x="0.0" y="41" width="523" height="178"/>
                         <color key="backgroundColor" red="0.3677272499" green="0.68429595229999995" blue="0.45343577860000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+
                             <constraint firstAttribute="width" constant="523" id="5qd-7z-8N7"/>
                             <constraint firstAttribute="height" constant="178" id="Mua-Z4-Ecp"/>
+
+                            <constraint firstAttribute="height" constant="178" id="KmL-Ay-s65"/>
+                            <constraint firstAttribute="width" constant="523" id="QJg-GK-37N"/>
+
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="43"/>
                         <nil key="textColor"/>
@@ -107,8 +112,14 @@
                     <constraint firstAttribute="bottom" secondItem="ScP-zR-N3z" secondAttribute="bottom" constant="16" id="IqG-cM-xwA"/>
                     <constraint firstItem="nnu-8o-YWI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="KmK-J9-cnu"/>
                     <constraint firstItem="nnu-8o-YWI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="Pgy-g8-6Tm"/>
+                    <constraint firstItem="NR4-VI-fYh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="41" id="QeW-6D-Zdg"/>
+                    <constraint firstAttribute="bottom" secondItem="NR4-VI-fYh" secondAttribute="bottom" id="QlD-r6-1dg"/>
                     <constraint firstItem="Weq-yg-fIL" firstAttribute="bottom" secondItem="ScP-zR-N3z" secondAttribute="bottom" id="R4V-yh-Yxz"/>
+
                     <constraint firstItem="NR4-VI-fYh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="SMR-vJ-bWX"/>
+
+                    <constraint firstItem="NR4-VI-fYh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Wog-QK-D1N"/>
+
                     <constraint firstAttribute="trailing" secondItem="K0P-bl-rO8" secondAttribute="trailing" constant="8" id="b1S-p4-JqD"/>
                     <constraint firstItem="ScP-zR-N3z" firstAttribute="top" secondItem="nnu-8o-YWI" secondAttribute="bottom" constant="18.666666666666686" id="bJa-p4-lFI"/>
                     <constraint firstItem="fNO-ub-ckh" firstAttribute="top" secondItem="K0P-bl-rO8" secondAttribute="bottom" constant="8" id="c9g-jf-TqI"/>
@@ -121,7 +132,11 @@
                     <constraint firstItem="NR4-VI-fYh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="41" id="v7H-eD-mve"/>
                     <constraint firstAttribute="bottom" secondItem="Weq-yg-fIL" secondAttribute="bottom" constant="16" id="vUo-GU-ZOo"/>
                     <constraint firstItem="ScP-zR-N3z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="32" id="vhb-sJ-kII"/>
+
                     <constraint firstAttribute="bottom" secondItem="NR4-VI-fYh" secondAttribute="bottom" id="y1U-1e-vwZ"/>
+
+                    <constraint firstAttribute="trailing" secondItem="NR4-VI-fYh" secondAttribute="trailing" id="wb4-mw-pjy"/>
+
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

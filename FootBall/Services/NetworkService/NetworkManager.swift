@@ -9,13 +9,11 @@ import Foundation
 import Alamofire
 
 
-struct NetworkManager {
-    
+struct NetworkManager: NetworkManagerProtocol {
     
     func setUrlFormat(baseUrl: String,request: String, id: String="", query: String="") -> String{
         return baseUrl+"/"+request+"/"+id+"/"+query
     }
-    
     
     func getFootballDetailsFromApi<T: Decodable>(url: String, headers: HTTPHeaders, handler: @escaping (T)->Void){
         let urlFB = URL(string: url)

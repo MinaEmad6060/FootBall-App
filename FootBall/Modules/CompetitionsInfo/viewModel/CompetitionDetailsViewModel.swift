@@ -12,37 +12,36 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
     
     var bindCompetitionsDetailsToViewController: (() -> ())?
     var bindTeamsToViewController: (() -> ())?
-//    var bindGamesToViewController: (() -> ())?
     
     var competitionsDetailsViewData: CompetitionsDetailsViewData?
     var competitionTeamViewData: [CompetitionTeamViewData]?
     
-//    var numberOfGamesForCompetition: Int16?
-    var networkManager = NetworkManager()
+    var networkManager: NetworkManagerProtocol?
+    
+    init(){
+        networkManager = NetworkManager()
+    }
 
     func getCompetitionsDetailsFromNetworkService() {
-        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "competitions", id: "\(Constants.competitionID)")
+        let url = networkManager?.setUrlFormat(baseUrl: Constants.baseUrl, request: "competitions", id: "\(Constants.competitionID)", query: "") ?? ""
         competitionsDetailsViewData = CompetitionsDetailsViewData()
-        networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballCompetition: Competition) in
-            
+        networkManager?.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballCompetition: Competition) in
             self?.competitionsDetailsViewData?.endDate = footballCompetition.currentSeason?.endDate
             self?.competitionsDetailsViewData?.startDate = footballCompetition.currentSeason?.startDate
             self?.competitionsDetailsViewData?.image = footballCompetition.emblemUrl
             self?.competitionsDetailsViewData?.longName = footballCompetition.name
             self?.competitionsDetailsViewData?.shortName = footballCompetition.area?.name
-            
             self?.competitionsDetailsViewData?.winnerImage = footballCompetition.currentSeason?.winner?.crestUrl
             self?.competitionsDetailsViewData?.winnerLongName = footballCompetition.currentSeason?.winner?.name
             self?.competitionsDetailsViewData?.winnerShortName = footballCompetition.currentSeason?.winner?.tla
-            
             self?.bindCompetitionsDetailsToViewController?()
         }
     }
     
     func getTeamsFromNetworkService() {
-        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "competitions", id: "\(Constants.competitionID)", query: "teams")
+        let url = networkManager?.setUrlFormat(baseUrl: Constants.baseUrl, request: "competitions", id: "\(Constants.competitionID)", query: "teams") ?? ""
         competitionTeamViewData = [CompetitionTeamViewData]()
-        networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballTeams: FootballTeams) in
+        networkManager?.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballTeams: FootballTeams) in
           
             if let teams = footballTeams.teams{
                 var team = CompetitionTeamViewData()
@@ -57,13 +56,4 @@ class CompetitionDetailsViewModel: CompetitionDetailsViewModelProtocol{
             }
         }
     }
-//    
-//    func getGamesFromNetworkService() {
-//        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "competitions", id: "\(Constants.competitionID)", query: "matches")
-//        networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballGames: FootballGames) in
-//            self?.numberOfGamesForCompetition = footballGames.count
-//            self?.bindGamesToViewController?()
-//        }
-//    }
-  
 }

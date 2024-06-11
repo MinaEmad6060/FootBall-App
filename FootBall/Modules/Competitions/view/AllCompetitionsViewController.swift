@@ -40,8 +40,9 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
         
         setBorderForText()
         initViewController()
-        fetchDataFromApi()
         
+        allCompetitionsViewModel.getCompetitionsFromNetworkService()
+
         
         let nibCustomCell = UINib(nibName: "CompetitionViewCell", bundle: nil)
         competitionsTable.register(nibCustomCell, forCellReuseIdentifier: "competitionCell")
@@ -62,7 +63,7 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
         if competitionsViewData.count > 0{
             return competitionsViewData.count
         }
-        return 0
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,8 +72,8 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
         if competitionsViewData.count > indexPath.row{
             cell.competitionLongName.text = competitionsViewData?[indexPath.row].longName
             cell.competitionShortName.text = competitionsViewData?[indexPath.row].shortName
-            cell.competitionNumberOfTeams.text = "\(Constants.generateRandomNumber(start: 10, end: 32))"
-            cell.competitionNumberOfGames.text = "\(Constants.generateRandomNumber(start: 50, end: 100))"
+            cell.competitionNumberOfTeams.text = "\(Constants.generateRandomNumber(start: 32, end: 64))"
+            cell.competitionNumberOfGames.text = "\(Constants.generateRandomNumber(start: 64, end: 100))"
             let placeholderImage = UIImage(systemName: "trophy.fill")
             if let imageURLString = competitionsViewData?[indexPath.row].image, let imageURL = URL(string: imageURLString) {
                 cell.competitionImage.kf.setImage(with: imageURL, placeholder: placeholderImage)
@@ -109,14 +110,6 @@ class AllCompetitionsViewController: UIViewController,UITableViewDelegate, UITab
         competitionDetailsViewModel = CompetitionDetailsViewModel()
         competitionsViewData = [CompetitionsViewData]()
     }
-    
-    
-    func fetchDataFromApi(){
-        allCompetitionsViewModel.getCompetitionsFromNetworkService()
-//        allCompetitionsViewModel.getNumberOfTeamsFromNetworkService()
-        competitionDetailsViewModel.getGamesFromNetworkService()
-    }
-    
     
     func handleClousreToGetDataFromViewModel(){
         allCompetitionsViewModel.bindCompetitionsToViewController = {

@@ -8,7 +8,6 @@
 import Foundation
 import Alamofire
 
-
 class Constants{
     static let baseUrl = "https://api.football-data.org/v2"
     static let headers: HTTPHeaders = [

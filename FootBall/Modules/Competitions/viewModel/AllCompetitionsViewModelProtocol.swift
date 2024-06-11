@@ -9,12 +9,12 @@ import Foundation
 
 
 protocol AllCompetitionsViewModelProtocol{
+    
     var competitionsViewData: [CompetitionsViewData]? { get set }
-//    var numberOfTeamsForCompetition: Int16? { get set }
+    var networkManager: NetworkManagerProtocol? { get set }
     
     var bindCompetitionsToViewController : (()->())? { get set }
-//    var bindTeamsToViewController : (()->())? { get set }
     
     func getCompetitionsFromNetworkService()
-//    func getNumberOfTeamsFromNetworkService()
+    
 }
