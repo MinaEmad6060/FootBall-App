@@ -8,8 +8,6 @@
 import UIKit
 
 
-
-
 struct TeamInformationViewData{
     var image: String?
     var longName: String?
@@ -59,26 +57,7 @@ class TeamDetailsViewController: UIViewController,UITableViewDelegate, UITableVi
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        teamDetailsViewModel.bindTeamInformationToViewController = {
-            self.teamInformationViewData = self.teamDetailsViewModel.teamInformation
-            
-            DispatchQueue.main.async {
-                self.teamColors.text = self.teamInformationViewData.colors
-                self.teamFounded.text = self.teamInformationViewData.founded
-                self.teamLongName.text = self.teamInformationViewData.longName
-                self.teamShortName.text = self.teamInformationViewData.shortName
-                self.teamStadium.text = self.teamInformationViewData.stadium
-                self.teamWebsite.text = self.teamInformationViewData.website
-
-                if let teamImageURLString = self.teamInformationViewData.image, let teamImageURL = URL(string: teamImageURLString) {
-                    self.teamImage.kf.setImage(with: teamImageURL, placeholder: Constants.placeholderCompetitionImage)
-                } else {
-                    self.teamImage.image = Constants.placeholderCompetitionImage
-                }
-                
-                self.playersTable.reloadData()
-            }
-        }
+       handleClousreToGetTeamDetailsFromViewModel()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -122,5 +101,28 @@ class TeamDetailsViewController: UIViewController,UITableViewDelegate, UITableVi
     func initViewController(){
         teamDetailsViewModel = TeamDetailsViewModel()
         teamInformationViewData = TeamInformationViewData()
+    }
+    
+    func handleClousreToGetTeamDetailsFromViewModel(){
+        teamDetailsViewModel.bindTeamInformationToViewController = {
+            self.teamInformationViewData = self.teamDetailsViewModel.teamInformation
+            
+            DispatchQueue.main.async {
+                self.teamColors.text = self.teamInformationViewData.colors
+                self.teamFounded.text = self.teamInformationViewData.founded
+                self.teamLongName.text = self.teamInformationViewData.longName
+                self.teamShortName.text = self.teamInformationViewData.shortName
+                self.teamStadium.text = self.teamInformationViewData.stadium
+                self.teamWebsite.text = self.teamInformationViewData.website
+
+                if let teamImageURLString = self.teamInformationViewData.image, let teamImageURL = URL(string: teamImageURLString) {
+                    self.teamImage.kf.setImage(with: teamImageURL, placeholder: Constants.placeholderCompetitionImage)
+                } else {
+                    self.teamImage.image = Constants.placeholderCompetitionImage
+                }
+                
+                self.playersTable.reloadData()
+            }
+        }
     }
 }

@@ -20,6 +20,7 @@
 		4046D7532C16711700A01192 /* FootballCompetitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046D7522C16711700A01192 /* FootballCompetitions.swift */; };
 		4046D7552C16715400A01192 /* FootballTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046D7542C16715400A01192 /* FootballTeams.swift */; };
 		4046D7582C1679B300A01192 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4046D7572C1679B300A01192 /* NetworkManager.swift */; };
+		40975C802C17C7DA009AD145 /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40975C7F2C17C7DA009AD145 /* NetworkManagerProtocol.swift */; };
 		40ACC5712C17021B00A9A049 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ACC5702C17021B00A9A049 /* Constants.swift */; };
 		40ACC5732C1705FD00A9A049 /* AllCompetitionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ACC5722C1705FD00A9A049 /* AllCompetitionsViewModel.swift */; };
 		40ACC5752C17062100A9A049 /* AllCompetitionsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40ACC5742C17062100A9A049 /* AllCompetitionsViewModelProtocol.swift */; };
@@ -53,6 +54,7 @@
 		4046D7522C16711700A01192 /* FootballCompetitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballCompetitions.swift; sourceTree = "<group>"; };
 		4046D7542C16715400A01192 /* FootballTeams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballTeams.swift; sourceTree = "<group>"; };
 		4046D7572C1679B300A01192 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		40975C7F2C17C7DA009AD145 /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		40ACC5702C17021B00A9A049 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		40ACC5722C1705FD00A9A049 /* AllCompetitionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCompetitionsViewModel.swift; sourceTree = "<group>"; };
 		40ACC5742C17062100A9A049 /* AllCompetitionsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCompetitionsViewModelProtocol.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				4046D7572C1679B300A01192 /* NetworkManager.swift */,
+				40975C7F2C17C7DA009AD145 /* NetworkManagerProtocol.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				40B943E32C175C2700AE07F7 /* TeamDetailsViewModel.swift in Sources */,
 				40ACC5752C17062100A9A049 /* AllCompetitionsViewModelProtocol.swift in Sources */,
 				400F8CE82C16289D000515B3 /* SceneDelegate.swift in Sources */,
+				40975C802C17C7DA009AD145 /* NetworkManagerProtocol.swift in Sources */,
 				40B943DA2C1735FB00AE07F7 /* PlayerViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

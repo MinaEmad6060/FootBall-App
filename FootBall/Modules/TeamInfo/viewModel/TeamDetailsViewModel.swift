@@ -15,14 +15,19 @@ class TeamDetailsViewModel : TeamDetailsViewModelProtocol{
        
     var bindTeamInformationToViewController: (() -> ())?
         
-    var networkManager = NetworkManager()
+    var networkManager: NetworkManagerProtocol?
     
+    init(){
+        networkManager = NetworkManager()
+    }
+
     func getPlayersFromNetworkService() {
-        let url = networkManager.setUrlFormat(baseUrl: Constants.baseUrl, request: "teams", id: "\(Constants.teamID)")
-        print("url : \(url)")
+        let url = networkManager?.setUrlFormat(baseUrl: Constants.baseUrl, request: "teams", id: "\(Constants.teamID)", query: "") ?? ""
+        
         teamInformation = TeamInformationViewData()
         teamInformation?.players = [TeamPlayerViewData]()
-        networkManager.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballPlayers: Team) in
+        
+        networkManager?.getFootballDetailsFromApi(url:  url, headers: Constants.headers) {[weak self]  (footballPlayers: Team) in
             
             self?.teamInformation?.founded = "\(footballPlayers.founded ?? -1)"
             self?.teamInformation?.longName = footballPlayers.name
@@ -41,7 +46,6 @@ class TeamDetailsViewModel : TeamDetailsViewModelProtocol{
                     self?.teamInformation?.players?.append(player)
                 }
                 self?.bindTeamInformationToViewController?()
-                print("Plyers : \(self?.teamInformation?.players?.count ?? -1)")
             }
         }
     }
